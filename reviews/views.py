@@ -1,3 +1,7 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 
-# Create your views here.
+
+# View for running reviews
+def reviews(request):
+    return HttpResponse("This isnt a review")
