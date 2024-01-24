@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h1>glassfish</h1>
+{% for reviews in reviews_all %}
+<a>
+    <div>
+        <div>
+            <h5>{{ reviews.title }}</h5>
+            <!-- the "safe" tag prevents the code tags from displaying  -->
+            <p>{{ reviews.content|truncatechars:100 | safe }}</p>
+            <p>By- {{ reviews.author }}</p>
+        </div>
+    </div>
+</a>
+{% endfor %}
+{% endblock %}
