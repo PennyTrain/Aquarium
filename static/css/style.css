@@ -1,3 +1,289 @@
-.navbar {
-    background-color: blue;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+/*end of css reset*/
+
+
+/* Sets the background color, the font color, and height of the body */
+body {
+    background-color: hsl(225, 91%, 82%);
+    height: 100vh;  
+    color: black;
+}
+
+/* This hides the overflow of the nav, sets the background color to black and sets a
+border around to be black, solid and 4 pixels wide */
+nav {
+    background-color: #00004d;
+    overflow: hidden;
+    border: solid 4px black;
+}
+
+/* This targets GlassFish, it floats it to the left of the screen, makes the text white and 35 pixels */
+.title {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 35px;
+}
+
+/* This is for my fontawesome icons as I want them to display as white */
+i {
+    color: white;
+}
+
+/* My navbar items float right, display block, have padding and a font size of 20 pixels */
+.nav-items {
+    float: right;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/* This makes my navbar items underlined when the mouse is hovered over them */
+.nav-items:hover {
+    text-decoration: underline;
+}
+
+/* Footer background color is a dark blue, the position is fixed and it displays bloack, therefore it does not move from the bottom of the page 
+the bottom is 0, it has a width of 100% and the text is white, it also has a 4 pixel solid black border */
+footer{
+    background-color: #00004d;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+    display: block;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border: solid 4px black;
+}
+
+/* The footer items are displaying inline with a padding of .5rem */
+.footer-items {
+    display: inline;
+    padding: .5rem;
+}
+
+/* When the footer items are hovered over they are underlined */
+.footer-items:hover {
+    text-decoration: underline;
+}
+
+/* The homepage-container class aligns the content to the middle and give it padding */
+.homepage-container {
+    padding: 2rem;
+    text-align: center;
+}
+
+/* This gives the content 2rem padding */
+.home-content {
+    padding: 2rem;
+}
+
+/* This makes the homepage-title fontsize 25px */
+.homepage-title {
+    font-size: 25px;
+}
+
+/* The video on the homepage is centered and 25rem tall and 30rem wide */
+iframe {
+    height: 25rem;
+    width: 30rem;
+    justify-content: center;
+}
+
+/* This enables the photos in the galary to be displayed, with 0 gap, and display 4 in a row and then drop down to the next row. */
+.photos {
+    clear: both;
+    line-height: 0;
+    column-count:4;
+    column-gap: 0;
+}
+
+/* This makes the img width 100% */
+.photos > img {
+    width: 100%;
+}
+
+/* The text on the visit page is centered, has a padding of 2rem, it floats to the left, and has a fontsize of 20 pixels */
+.visit-text {
+    text-align: center;
+    padding: 2rem;
+    float: left;
+    font-size: 20px;
+}
+
+/* This makes the image on the visit page floar right and have a padding of 2 rem! */
+.visit-image {
+    padding: 2rem;
+    float: right;
+}
+
+/* This enables a 2rem gap between the opening hours, ticket prices, and the don't forget section */
+.ticket-price {
+    padding: 2rem;
+}
+
+/* The mini titles on the visit page have a font size of 25 pixels and a gap of .5 rem from their sub content */
+.visit-title {
+    padding: .5rem;
+    font-size: 25px;
+}
+
+.review-page-title {
+    color: white;
+    font-size: 30px;
+    text-align: center;
+}
+
+.review-display {
+    background-color:hsl(225, 75%, 87%)
+}
+
+@media screen and (max-width: 950px) {
+    /* This makes the galary page responsive, as when the screen drops down to a max width of 950 pixels the images display 3 in a row
+instead of displaying 4 in a row */
+    .photos {
+        column-count: 3;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    /* This makes the galary page responsive, as when the screen drops down to a max width of 950 pixels the images display 2 in a row
+instead of displaying 3 in a row */
+    .photos {
+        column-count: 2;
+    }
 }

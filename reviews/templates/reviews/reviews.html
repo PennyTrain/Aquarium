@@ -2,17 +2,19 @@
 {% load static %}
 
 {% block content %}
-<h1>glassfish</h1>
+<h1 class="review-page-title">Glass Fish Reviews</h1>
+<!-- this is a loop through all reviews -->
 {% for reviews in reviews_all %}
 <a>
     <div>
-        <div>
-            <h5>{{ reviews.title }}</h5>
+        <div class="review-display">
+            <h5 class="review-title">{{ reviews.title }}</h5>
             <!-- the "safe" tag prevents the code tags from displaying  -->
-            <p>{{ reviews.content|truncatechars:100 | safe }}</p>
-            <p>By- {{ reviews.author }}</p>
+            <p class="review-content">{{ reviews.content|truncatechars:100 | safe }}</p>
+            <p class="review-author">By- {{ reviews.author }}</p>
         </div>
     </div>
 </a>
 {% endfor %}
+<!-- closing the loop ^ -->
 {% endblock %}
