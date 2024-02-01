@@ -1,5 +1,9 @@
 {% load static %}
 
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,10 +36,36 @@
                 <!-- The title that floats left -->
                 <li class="title"><i class="fa-solid fa-fish-fins"></i> Glass Fish <i class="fa-solid fa-fish-fins"></i></li>
                 <!-- The navbar items which direct you to a new page -->
-                <li class="nav-items">Log in</li>
-                <li class="nav-items">Gallary</li>
-                <li class="nav-items">Visit</li>
-                <li class="nav-items">Home</li>
+                {% if user.is_authenticated %}
+                <li class="nav-items">
+                    <a href="{% url 'account_logout' %}">
+                        Log out
+                    </a>
+                </li>
+                <li class="nav-items">Profile</li>
+                <!-- profile icon where u can access ur profile -->
+                {% else %}
+                <li class="nav-items">
+                    <a href="{% url 'account_login' %}">
+                        Log in
+                    </a>
+                </li>
+                {% endif %}
+                <li class="nav-items">
+                    <a class="links" href="{% url 'main:gallery' %}">
+                        Gallery
+                    </a>
+                </li>
+                <li class="nav-items">
+                    <a href="{% url 'main:visit' %}">
+                        Visit
+                    </a>
+                </li>
+                <li class="nav-items">
+                    <a href="{% url 'main:main' %}">
+                        Home
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>
@@ -49,10 +79,15 @@
         <footer>
             <ul>
                 <!-- Footer items that direct you to a new page -->
-                <li class="footer-items">Home</li>
+                <li class="footer-items">
+                    <a>
+                        Home
+                    </a>
+                </li>
                 <li class="footer-items">Visit</li>
                 <li class="footer-items">Gallary</li>
                 <li class="footer-items">Log in</li>
+
             </ul>
         </footer>
     </div>

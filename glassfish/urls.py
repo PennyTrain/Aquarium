@@ -21,6 +21,7 @@ from reviews.views import ReviewPostDisplay
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("accounts/", include("allauth.urls")),
     path('', include('main.urls')),
     path('summernote/', include('django_summernote.urls')),
     path('reviews/', ReviewPostDisplay, name='ReviewPostDisplay')

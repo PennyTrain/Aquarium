@@ -142,6 +142,18 @@ nav {
     border: solid 4px black;
 }
 
+
+/* This targets all the a tags, making them have no text decoration */
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.links {
+    text-decoration: none;
+    color: white;
+}
+
 /* This targets GlassFish, it floats it to the left of the screen, makes the text white and 35 pixels */
 .title {
     float: left;
