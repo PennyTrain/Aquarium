@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render
 from .models import ReviewPost
@@ -12,3 +13,11 @@ def ReviewPostDisplay(request):
     }
     return render(request, template_name, context)
 
+
+@login_required
+def Profile(request):
+    """
+    View that returns profile page
+    """
+    template_name = 'reviews/profile.html'
+    return render(request, template_name)

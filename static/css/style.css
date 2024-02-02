@@ -149,8 +149,7 @@ a {
     color: white;
 }
 
-.links {
-    text-decoration: none;
+a:hover {
     color: white;
 }
 
@@ -184,6 +183,7 @@ i {
 /* This makes my navbar items underlined when the mouse is hovered over them */
 .nav-items:hover {
     text-decoration: underline;
+    color: white;
 }
 
 /* Footer background color is a dark blue, the position is fixed and it displays bloack, therefore it does not move from the bottom of the page 

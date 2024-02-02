@@ -42,7 +42,11 @@
                         Log out
                     </a>
                 </li>
-                <li class="nav-items">Profile</li>
+                <li class="nav-items">
+                    <a href="{% url 'reviews:profile' %}">
+                        Profile
+                    </a>
+                </li>
                 <!-- profile icon where u can access ur profile -->
                 {% else %}
                 <li class="nav-items">

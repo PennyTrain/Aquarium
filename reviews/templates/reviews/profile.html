@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h1>PROFILE</h1>
+{% load account %}
+{% load i18n %} 
+{% user_display user as name %}
+{% blocktrans %}{{name}}{% endblocktrans %}
+
+{% endblock %}
