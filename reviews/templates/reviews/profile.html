@@ -7,5 +7,14 @@
 {% load i18n %} 
 {% user_display user as name %}
 {% blocktrans %}{{name}}{% endblocktrans %}
+<div class="image-container">
+    {% if "placeholder" in post.featured_image.url %}
+    <img class="card-img-top" src="#"
+      alt="placeholder image">
+    {% else %}
+    <img class="card-img-top" src="#"
+      alt="#">
+    {% endif %}
+    <div class="image-flash">
 
 {% endblock %}
