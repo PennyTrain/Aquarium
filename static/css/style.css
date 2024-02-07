@@ -283,6 +283,10 @@ iframe {
     background-color:hsl(225, 75%, 87%)
 }
 
+button{
+    color:#00004d;
+}
+
 @media screen and (max-width: 950px) {
     /* This makes the galary page responsive, as when the screen drops down to a max width of 950 pixels the images display 3 in a row
 instead of displaying 4 in a row */

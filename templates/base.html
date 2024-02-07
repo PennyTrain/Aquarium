@@ -1,5 +1,6 @@
 {% load static %}
 
+
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -11,6 +12,9 @@
     <title>GlassFish Aquarium</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
     <!-- Google Fonts CSS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">

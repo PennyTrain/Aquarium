@@ -5,7 +5,7 @@
 <h1 class="review-page-title">Glass Fish Reviews</h1>
 <!-- this is a loop through all reviews -->
 {% for reviews in reviews_all %}
-<a>
+<a href="{% url 'reviews:reviews-detail' reviews.slug %}">
     <div>
         <div class="review-display">
             <h5 class="review-title">{{ reviews.title }}</h5>
@@ -16,5 +16,6 @@
     </div>
 </a>
 {% endfor %}
+<button><a href="{% url 'main:main' %}">Back!</a></button>
 <!-- closing the loop ^ -->
 {% endblock %}
