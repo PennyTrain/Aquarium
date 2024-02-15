@@ -2,17 +2,20 @@
 {% load static %}
 
 {% block content %}
-    <div class="row m-0 d-flex justify-content-center">
-        <div class="card col-xl-2 text-center">
+    <div class="m-0 d-flex justify-content-center reviews-detail">
+        <div class="col-xl-2 text-center">
             <div>
                 <h5>{{ review.title }}</h5>
                 <p>{{ review.content|truncatechars:100 }}</p>
-                <p>{{ review.author }}</p>
+                <p>by x{{ review.author }}</p>
             </div>
         </div>
         {% if user == review.author %}
+        <div>
             <a class="btn btn-primary btn-sm mt-1 mb-1" href="{% url 'reviews:update-review' review.slug %}">Update</a>
-            <a class="btn btn-primary btn-sm mt-1 mb-1" href="{% url 'reviews:delete-review' review.slug %}">Update</a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'reviews:delete-review' review.slug %}">Delete</a>
+            <button class="btn btn-secondary"><a href="{% url 'reviews:ReviewPostDisplay' %}">Back!</a></button>
+        </div>
         {% endif %}
     </div>
 {% endblock %}

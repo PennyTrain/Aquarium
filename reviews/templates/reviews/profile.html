@@ -2,19 +2,20 @@
 {% load static %}
 
 {% block content %}
+<div class="profile-display">
 <h1>PROFILE</h1>
 {% load account %}
-{% load i18n %} 
+{% load i18n %}
 {% user_display user as name %}
 {% blocktrans %}{{name}}{% endblocktrans %}
 <div class="image-container">
-    {% if "placeholder" in post.featured_image.url %}
-    <img class="card-img-top" src="#"
-      alt="placeholder image">
-    {% else %}
-    <img class="card-img-top" src="#"
-      alt="#">
-    {% endif %}
-    <div class="image-flash">
-      <button><a href="{% url 'main:main' %}">Back!</a></button>
-{% endblock %}
+  {% if "placeholder" in post.featured_image.url %}
+  <img class="card-img-top" src="#" alt="placeholder image">
+  {% else %}
+  <img class="card-img-top" src="#" alt="#">
+  {% endif %}
+  <div class="image-flash">
+    <button class="btn btn-secondary"><a href="{% url 'main:main' %}">Back!</a></button>
+    <button class="btn btn-secondary"><a href="{% url 'main:main' %}"><i class="fa-solid fa-pencil"></i></a></button>
+  </div>
+    {% endblock %}

@@ -38,7 +38,8 @@
         <nav>
             <ul>
                 <!-- The title that floats left -->
-                <li class="title"><i class="fa-solid fa-fish-fins"></i> Glass Fish <i class="fa-solid fa-fish-fins"></i></li>
+                <li class="title"><i class="fa-solid fa-fish-fins"></i> Glass Fish <i class="fa-solid fa-fish-fins"></i>
+                </li>
                 <!-- The navbar items which direct you to a new page -->
                 {% if user.is_authenticated %}
                 <li class="nav-items">
@@ -87,14 +88,39 @@
         <footer>
             <ul>
                 <!-- Footer items that direct you to a new page -->
+                {% if user.is_authenticated %}
+                <li class="footer-items">
+                    <a href="{% url 'account_logout' %}">
+                        Log out
+                    </a>
+                </li>
+                <li class="footer-items">
+                    <a href="{% url 'reviews:profile' %}">
+                        Profile
+                    </a>
+                </li>
+                {% else %}
                 <li class="footer-items">
                     <a>
+                        Log in
+                    </a>
+                </li>
+                {% endif %}
+                <li class="footer-items">
+                    <a href="{% url 'main:main' %}">
                         Home
                     </a>
                 </li>
-                <li class="footer-items">Visit</li>
-                <li class="footer-items">Gallary</li>
-                <li class="footer-items">Log in</li>
+                <li class="footer-items">
+                    <a href="{% url 'main:visit' %}">
+                        Visit
+                    </a>
+                </li>
+                <li class="footer-items">
+                    <a href="{% url 'main:gallery' %}">
+                        Gallary
+                    </a>
+                </li>
 
             </ul>
         </footer>

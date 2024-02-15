@@ -82,6 +82,9 @@ def UpdateReview(request, slug):
     return render(request, 'reviews/update_review.html', context)
 
 
+
+
+
 # class DeleteReview(DeleteView): 
 #     model = ReviewPost
 #     template_name = "reviews/delete_review.html"

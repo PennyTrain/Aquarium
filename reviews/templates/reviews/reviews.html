@@ -4,10 +4,11 @@
 {% block content %}
 <h1 class="review-page-title">Glass Fish Reviews</h1>
 <!-- this is a loop through all reviews -->
+<div class="">
 {% for reviews in reviews_all %}
 <a href="{% url 'reviews:reviews-detail' reviews.slug %}">
     <div>
-        <div class="review-display">
+        <div class="reviews-display">
             <h5 class="review-title">{{ reviews.title }}</h5>
             <!-- the "safe" tag prevents the code tags from displaying  -->
             <p class="review-content">{{ reviews.content|truncatechars:100 | safe }}</p>
@@ -16,6 +17,7 @@
     </div>
 </a>
 {% endfor %}
-<button><a href="{% url 'main:main' %}">Back!</a></button>
+</div>
+<button class="btn btn-secondary"><a href="{% url 'main:main' %}">Back!</a></button>
 <!-- closing the loop ^ -->
 {% endblock %}

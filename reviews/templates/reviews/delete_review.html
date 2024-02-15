@@ -2,13 +2,15 @@
 {% load static %}
 
 {% block content %}
-<h1>Delete Review</h1>
-<h3>Delete:</h3>
-<form method="POST">
-    {% csrf_token %}
-    <strong>Are you sure?</strong>
-   
-    <button>Delete Post</button>
+<div class="row m-0 d-flex justify-content-center">
+    <h1>Delete Review</h1>
+    <h3>Delete:</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <strong>Are you sure?</strong>
+</div>
+
+<button>Delete Post</button>
 
 </form>
 <button><a href="{% url 'main:main' %}">Cancel!</a></button>

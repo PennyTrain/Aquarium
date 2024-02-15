@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% load cloudinary %}
-
+{% load static %}
 {% block content %}
-<div>
+
+<div class="update-review">
     <h2>Update Post</h2>
     <form class="" enctype="multipart/form-data" method="POST">
         {% csrf_token %}

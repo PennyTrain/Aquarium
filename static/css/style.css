@@ -130,7 +130,7 @@ q:after {
 /* Sets the background color, the font color, and height of the body */
 body {
     background-color: hsl(225, 91%, 82%);
-    height: 100vh;  
+    height: 100vh;
     color: black;
 }
 
@@ -188,7 +188,7 @@ i {
 
 /* Footer background color is a dark blue, the position is fixed and it displays bloack, therefore it does not move from the bottom of the page 
 the bottom is 0, it has a width of 100% and the text is white, it also has a 4 pixel solid black border */
-footer{
+footer {
     background-color: #00004d;
     overflow: hidden;
     color: white;
@@ -214,8 +214,13 @@ footer{
 
 /* The homepage-container class aligns the content to the middle and give it padding */
 .homepage-container {
-    padding: 2rem;
+    padding: 1rem;
     text-align: center;
+    background-color: rgba(0, 0, 77, 0.7);
+    color: white;
+    margin: 2rem;
+    border-radius: 1rem;
+    border: 4px solid black;
 }
 
 /* This gives the content 2rem padding */
@@ -225,7 +230,8 @@ footer{
 
 /* This makes the homepage-title fontsize 25px */
 .homepage-title {
-    font-size: 25px;
+    font-size: 40px;
+    text-decoration: underline;
 }
 
 /* The video on the homepage is centered and 25rem tall and 30rem wide */
@@ -236,30 +242,29 @@ iframe {
 }
 
 /* This enables the photos in the galary to be displayed, with 0 gap, and display 4 in a row and then drop down to the next row. */
-.photos {
-    clear: both;
-    line-height: 0;
-    column-count:4;
-    column-gap: 0;
+.photos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 10px;
 }
 
-/* This makes the img width 100% */
-.photos > img {
-    width: 100%;
+.card-img-top {
+    width: auto;
+    max-height: 12rem;
 }
 
-/* The text on the visit page is centered, has a padding of 2rem, it floats to the left, and has a fontsize of 20 pixels */
+/* The text on the visit page is centered, has a padding of 1rem, it floats to the left, and has a fontsize of 20 pixels */
 .visit-text {
     text-align: center;
-    padding: 2rem;
-    float: left;
+    padding: 1rem;
+    background-color: rgba(0, 0, 77, 0.7);
     font-size: 20px;
-}
-
-/* This makes the image on the visit page floar right and have a padding of 2 rem! */
-.visit-image {
-    padding: 2rem;
-    float: right;
+    color: white;
+    border-radius: 30px;
+    border: 4px solid #000;
+    margin: 1rem;
 }
 
 /* This enables a 2rem gap between the opening hours, ticket prices, and the don't forget section */
@@ -279,27 +284,101 @@ iframe {
     text-align: center;
 }
 
-.review-display {
-    background-color:hsl(225, 75%, 87%)
+
+button {
+    color: #00004d;
+    cursor: pointer;
 }
 
-button{
-    color:#00004d;
+.reviews-display {
+    background-color: rgba(0, 0, 77, 0.7);
+    color: white;
+    border: 2px solid #000;
+    border-radius: 10px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
 }
+
+.reviews-detail {
+    background-color: #00004d;
+    color: white;
+    border: 2px solid #000;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+}
+
+.logout-form {
+    background-color: #00004d;
+    color: white;
+    border: 2px solid #000;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 30px;
+    padding: .5rem;
+    width: 30rem;
+}
+
+.login-form {
+    background-color: #00004D;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 4rem;
+}
+
+.register-form {
+    background-color: #00004D;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 4rem;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.signup {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-display {
+    background-color: rgba(0, 0, 77, 0.7);
+    color: white;
+    text-align: center;
+    border-radius: 50px;
+    border: 4px solid black;
+}
+
+/* MAKING IT RESPONSIVE! */
 
 @media screen and (max-width: 950px) {
+
     /* This makes the galary page responsive, as when the screen drops down to a max width of 950 pixels the images display 3 in a row
 instead of displaying 4 in a row */
-    .photos {
-        column-count: 3;
-    }
+
 }
 
-
 @media screen and (max-width: 800px) {
+
     /* This makes the galary page responsive, as when the screen drops down to a max width of 950 pixels the images display 2 in a row
 instead of displaying 3 in a row */
-    .photos {
-        column-count: 2;
-    }
 }
