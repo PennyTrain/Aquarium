@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load cloudinary %}
+{% block content %}
+<div class="register-form">
+    <h1>Register</h1>
+    <div class="">
+        <small class="text-muted1">Have an account?<a class="btn btn-success"
+                href="{% url 'accounts:user-profile' %}">Sign In</a>
+        </small>
+    </div>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="register-content">
+            {{ form }}
+        </div>
+        <div class="">
+            <button class="btn btn-secondary" type="submit">Sign up!!</button>
+        </div>
+    </form>
+
+</div>
+{% endblock %}

@@ -25,7 +25,7 @@ def ReviewDetail(request, slug):
     return render(request, template_name, context)
 
 
-@login_required
+@login_required 
 def CreateReview(request):
     """
     A view to create the reviews
@@ -41,7 +41,7 @@ def CreateReview(request):
             print(request.user)
             # print(new_review)
             # print(new_review.author)
-            new_review.author = request.user
+            new_review.author = request.user 
             print(new_review)
             new_review.save()
             # message here
@@ -106,10 +106,3 @@ class DeleteReview(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
     
-@login_required
-def Profile(request):
-    """
-    View that returns profile page
-    """
-    template_name = 'reviews/profile.html'
-    return render(request, template_name)

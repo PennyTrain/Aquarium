@@ -2,12 +2,16 @@
 {% load static %}
 
 {% block content %}
-    <div class="m-0 d-flex justify-content-center reviews-detail">
-        <div class="col-xl-2 text-center">
+    <div class="card reviews-detail" style="width: 18rem;">
+        <div class="card-body">
             <div>
-                <h5>{{ review.title }}</h5>
-                <p>{{ review.content|truncatechars:100 }}</p>
-                <p>by x{{ review.author }}</p>
+                {% if "placeholder" in post.featured_image.url %}
+                <img class="card-img-top" src="#" alt="placeholder image">
+                {% else %}
+                <img class="card-img-top" src=" {{ reviews.featured_image.url }}" alt="{{ reviews.title }}">
+                {% endif %}
+                <h5 class="card-title">{{ review.title }}</h5>
+                <p class="card-text">{{ review.content|truncatechars:100 }} <br> by {{ review.author }}</p>
             </div>
         </div>
         {% if user == review.author %}

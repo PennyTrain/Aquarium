@@ -8,7 +8,6 @@ app_name = 'reviews'
 
 urlpatterns = [
     path('reviews/', views.ReviewPostDisplay, name='ReviewPostDisplay'),
-    path('profile/', views.Profile, name='profile' ),
     path('reviews/<slug:slug>/', views.ReviewDetail, name='reviews-detail'),
     path('create/', views.CreateReview, name='create'),
     path('<slug>/update/', views.UpdateReview, name='update-review'),

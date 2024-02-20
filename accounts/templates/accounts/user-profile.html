@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load cloudinary %}
+{% block content %}
+<div class="profile-display">
+  <img class="profile-image" src="{{ user.profile.profile_image.url }}">
+  <div class="media-body">
+    <h2 class="account-heading">{{ user.username }}</h2>
+    <form method="POST" class="uniForm" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="form-group signup">
+        <p>Profile Info</p>
+        {{ account_form }}
+        {{ profile_form }}
+      </div>
+      <div class="form-group">
+        <button class="btn btn-secondary" type="submit">Update</button>
+        <a class="btn btn-secondary" href="{% url 'accounts:delete' %}">
+          Delete
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

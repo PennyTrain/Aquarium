@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'reviews',
     'main',
+    'accounts',
 ]
 
 SITE_ID = 1
@@ -96,16 +97,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'glassfish.wsgi.application'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
