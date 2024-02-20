@@ -11,10 +11,10 @@
                 <img class="card-img-top" src=" {{ reviews.featured_image.url }}" alt="{{ reviews.title }}">
                 {% endif %}
                 <h5 class="card-title">{{ review.title }}</h5>
-                <p class="card-text">{{ review.content|truncatechars:100 }} <br> by {{ review.author }}</p>
+                <p class="card-text">{{ review.content|truncatechars:100 | safe}} <br> by {{ review.author }}</p>
             </div>
         </div>
-        {% if user == review.author %}
+        {% if user == review.author or user.is_superuser %}
         <div>
             <a class="btn btn-primary btn-sm mt-1 mb-1" href="{% url 'reviews:update-review' review.slug %}">Update</a>
             <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'reviews:delete-review' review.slug %}">Delete</a>

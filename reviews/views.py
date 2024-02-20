@@ -82,26 +82,27 @@ def UpdateReview(request, slug):
     return render(request, 'reviews/update_review.html', context)
 
 
+@login_required
+def DeleteReview(request, slug):
+    review = get_object_or_404(ReviewPost, slug=slug)
+    if not (request.user == review.author or request.user.is_superuser):
+        return redirect ('reviews:ReviewPostDisplay')
+    review.delete()
+    return redirect ('reviews:ReviewPostDisplay')
 
 
-
-# class DeleteReview(DeleteView): 
+# class DeleteReview(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+#     """
+#     Class base view of deleting an original post
+#     """
 #     model = ReviewPost
-#     template_name = "reviews/delete_review.html"
-#     success_url = reverse_lazy('reviews:ReviewPostDisplay')
-
-class DeleteReview(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
-    """
-    Class base view of deleting an original post
-    """
-    model = ReviewPost
-    success_message = "Post Deleted"
-    success_url = '/reviews/'
-    def test_func(self):
-        post = self.get_object()
-        if self.request.user == post.author:
-            return True
-        return False
+#     success_message = "Post Deleted"
+#     success_url = '/reviews/'
+#     def test_func(self):
+#         post = self.get_object()
+#         if self.request.user != post.author:
+#             return False
+#         return True
     
 
 
