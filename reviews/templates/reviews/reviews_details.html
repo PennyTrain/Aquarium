@@ -8,7 +8,7 @@
                 {% if "placeholder" in post.featured_image.url %}
                 <img class="card-img-top" src="#" alt="placeholder image">
                 {% else %}
-                <img class="card-img-top" src=" {{ reviews.featured_image.url }}" alt="{{ reviews.title }}">
+                <img class="card-img-top" src="{{ reviews.featured_image.url }}" alt="{{ reviews.title }}">
                 {% endif %}
                 <h5 class="card-title">{{ review.title }}</h5>
                 <p class="card-text">{{ review.content|truncatechars:100 | safe}} <br> by {{ review.author }}</p>

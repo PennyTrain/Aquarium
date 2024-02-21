@@ -1,6 +1,5 @@
 {% load static %}
 
-
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -10,7 +9,7 @@
 
 <head>
     <title>GlassFish Aquarium</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     {% load bootstrap5 %}
     {% bootstrap_css %}
@@ -33,9 +32,6 @@
 </head>
 
 <body>
-
-
-    
     <div>
         <!-- This is the navbar -->
         <nav>
@@ -87,14 +83,11 @@
         </nav>
     </div>
 
-
-    
-
     <!-- THIS IS WHERE ALL CONTENT IS RENDERED -->
     {% block content %}
     {% endblock %}
 
-    <div>
+    <div class="footer-container">
         <!-- This  is the footer-->
         <footer>
             <ul>
@@ -137,7 +130,6 @@
                         Gallary
                     </a>
                 </li>
-
             </ul>
         </footer>
     </div>

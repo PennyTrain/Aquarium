@@ -4,9 +4,12 @@
 {% block content %}
 <div class="register-form">
     <h1>Register</h1>
-    <div class="">
-        <small class="text-muted1">Have an account?<a class="btn btn-success"
-                href="{% url 'accounts:user-profile' %}">Sign In</a>
+    <div>
+        <small class="text-muted1">
+            Have an account?
+            <button class="btn btn-success">
+                <a href="{% url 'accounts:user-profile' %}">Sign In</a>
+            </button>
         </small>
     </div>
     <form method="POST" enctype="multipart/form-data">
@@ -14,10 +17,9 @@
         <div class="register-content">
             {{ form }}
         </div>
-        <div class="">
+        <div>
             <button class="btn btn-secondary" type="submit">Sign up!!</button>
         </div>
     </form>
-
 </div>
 {% endblock %}

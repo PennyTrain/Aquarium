@@ -14,26 +14,26 @@ Glass Fish Aquarium is built using Django using Python, JavaScript, CSS and HTML
 
 * The Home Page
 ---
-![](/static/images/readme-images/browser-home.png)
-![](/static/images/readme-images/phone-home.png)
+![Home page browser wireframe](/static/images/readme-images/browser-home.png)
+![Home page phone wireframe](/static/images/readme-images/phone-home.png)
 ---
 
 * The Gallery Page
 ---
-![](/static/images/readme-images/browser-gallery.png)
-![](/static/images/readme-images/phone-gallery.png)
+![Gallery page browser wireframe](/static/images/readme-images/browser-gallery.png)
+![Gallery page phone wireframe](/static/images/readme-images/phone-gallery.png)
 ---
 
 * The Visit Page
 ---
-![](/static/images/readme-images/browser-visit.png)
-![](/static/images/readme-images/phone-visit.png)
+![Visit page browser wireframe](/static/images/readme-images/browser-visit.png)
+![Visit page phone wireframe](/static/images/readme-images/phone-visit.png)
 ---
 
 * The Sign up Page
 ---
-![](/static/images/readme-images/browser-sign-up.png)
-![](/static/images/readme-images/phone-sign-up.png)
+![Sign up page browser wireframe](/static/images/readme-images/browser-sign-up.png)
+![Sign up page phone wireframe](/static/images/readme-images/phone-sign-up.png)
 ---
 
 * The Log in Page

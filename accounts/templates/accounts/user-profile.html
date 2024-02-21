@@ -14,10 +14,9 @@
         {{ profile_form }}
       </div>
       <div class="form-group">
-        <button class="btn btn-secondary" type="submit">Update</button>
-        <a class="btn btn-secondary" href="{% url 'accounts:delete' %}">
-          Delete
-        </a>
+        <button class="btn btn-success" type="submit">Update</button>
+        <button class="btn btn-secondary"><a href="{% url 'reviews:ReviewPostDisplay' %}">Back</a></button>
+        <button class="btn btn-danger"><a href="{% url 'accounts:delete' %}">Delete</a></button>
       </div>
     </form>
   </div>
