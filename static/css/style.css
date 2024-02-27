@@ -149,6 +149,7 @@ a {
     color: white;
 }
 
+/* Means when hovered over the elements underline white */
 a:hover {
     color: white;
 }
@@ -181,10 +182,6 @@ i {
     background-color: #00004D;
 }
 
-.navbar-border {
-    color: white;
-    background-color: #00004D;
-}
 /* This makes my navbar items underlined when the mouse is hovered over them */
 .nav-items:hover {
     text-decoration: underline;
@@ -395,6 +392,10 @@ button {
 
 .delete-content {
     padding: 1rem;
+}
+
+.btn-width {
+    width: 3rem;
 }
 /* MAKING IT RESPONSIVE! */
 

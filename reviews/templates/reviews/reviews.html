@@ -8,13 +8,11 @@
     <div>
         {% if user.is_authenticated %}
         <div>
-            <button class="btn btn-secondary review-page-btn"><a href="{% url 'reviews:create' %}">Create a
-                    Review!</a></button>
+            <a href="{% url 'reviews:create' %}">Create a Review!</a>
         </div>
         {% else %}
         <div>
-            <button class="btn btn-secondary"><a href="{% url 'accounts:signup' %}">Join The Site and Post a
-                    Review!</a></button>
+            <a href="{% url 'accounts:signup' %}">Join The Site and Post a Review!</a>
         </div>
         {% endif %}
     </div>
@@ -40,7 +38,7 @@
         </a>
         {% endfor %}
     </div>
-    <button class="btn btn-secondary review-page-btn"><a href="{% url 'main:main' %}">Back!</a></button>
+    <a href="{% url 'main:main' %}">Back!</a>
 </div>
 <!-- closing the loop ^ -->
 {% endblock %}

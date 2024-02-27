@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import ReviewPost
 from django_summernote.admin import SummernoteModelAdmin
 
+
 # Register your models here.
 @admin.register(ReviewPost)
 class PostAdmin(SummernoteModelAdmin):
@@ -11,5 +12,3 @@ class PostAdmin(SummernoteModelAdmin):
     list_filter = ('status', 'title',)
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('content',)
-
-

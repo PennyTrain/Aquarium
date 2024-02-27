@@ -1,9 +1,5 @@
 from django.urls import path
 from . import views
-from .views import (gallery,
-                    index,
-                    visit
-                    )
 
 
 app_name = 'main'

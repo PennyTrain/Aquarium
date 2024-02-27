@@ -71,6 +71,23 @@ Glass Fish Aquarium is built using Django using Python, JavaScript, CSS and HTML
 ![Create post page browser wireframe](/static/images/readme-images/browser-review-create.png)
 ![Create post page phone wireframe](/static/images/readme-images/phone-review-create.png)
 
+## Testing
+
+### Python Validation
+
+To check that my code was valid I ran it all through [Pep8](https://pep8ci.herokuapp.com/)
+I found that in some files, such as the env.py file the lines were too long, however for readibility I have left them... Along with the cloudinary links in my models!
+I ran all of these apps through PEP8
+- reviews
+- glassfish
+- main
+- accounts
+
+### CSS Validation
+
+- I ran my css through [W3 Validator](https://jigsaw.w3.org/css-validator/validator)
+![CSS Validator Response](/static/images/readme-images/css-validation.png)
+
 #### Technologies Used
 
 * asgiref==3.7.2

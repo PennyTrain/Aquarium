@@ -1,6 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
 
 def index(request):
     """
@@ -23,4 +22,4 @@ def visit(request):
     View that returns the visit page
     """
     template_name = 'main/visit.html'
-    return render (request, template_name)
+    return render(request, template_name)

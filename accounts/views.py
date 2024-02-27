@@ -42,11 +42,13 @@ def profile_login(request):
             if 'next' in request.POST:
                 return redirect(request.POST.get('next'))
             else:
-                messages.add_message(request, messages.SUCCESS, 'You have been logged in!')
+                messages.add_message(request, messages.SUCCESS,
+                                     'You have been logged in!')
                 return redirect('main:main')
     else:
         form = AuthenticationForm()
-    return render(request, 'accounts/login-form.html', {'form': form})
+    return render(request, 'accounts/login-form.html',
+                  {'form': form})
 
 
 # Creates the log out view
@@ -58,7 +60,8 @@ def profile_logout(request):
     """
     if request.method == 'POST':
         logout(request)
-        messages.add_message(request, messages.SUCCESS, 'You have been logged out!')
+        messages.add_message(request, messages.SUCCESS,
+                             'You have been logged out!')
         return redirect('main:main')
     form = AuthenticationForm()
     return render(request, 'accounts/log-out.html', {'form': form})
@@ -81,10 +84,12 @@ def profile_view(request):
             try:
                 profile_form.save()
                 account_form.save()
-                messages.add_message(request, messages.SUCCESS, 'Your profile has been updated!')
+                messages.add_message(request, messages.SUCCESS,
+                                     'Your profile has been updated!')
                 return redirect('accounts:profile')
-            except:
-                messages.add_message(request, messages.WARNING, 'Are you sure all the feilds are filled out correctly?')
+            except Exception:
+                messages.add_message(request, messages.WARNING,
+                                     'is it all filled out correctly?')
                 account_form = AccountUpdateForm(request.POST,
                                                  instance=request.user)
                 profile_form = ProfileFormUpdate(request.POST,
@@ -110,7 +115,8 @@ def profile_delete(request):
         delete_form = DeleteUserForm(request.POST, instance=request.user)
         user = request.user
         user.delete()
-        messages.warning(request, 'You have successfully deleted your profile!!')
+        messages.warning(request,
+                         'You have successfully deleted your profile!!')
         return redirect('accounts:signup')
     else:
         delete_form = DeleteUserForm(instance=request.user)

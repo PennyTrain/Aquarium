@@ -7,7 +7,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib import messages
 
 
-# View for running reviews
 def review_display(request):
     template_name = "reviews/reviews.html"
     reviews_all = ReviewPost.objects.all()
@@ -21,12 +20,12 @@ def review_detail(request, slug):
     review = get_object_or_404(ReviewPost, slug=slug)
     template_name = "reviews/reviews_details.html"
     context = {
-        'review': review 
+        'review': review
     }
     return render(request, template_name, context)
 
 
-@login_required 
+@login_required
 def review_create(request):
     """
     A view to create the reviews
@@ -42,13 +41,15 @@ def review_create(request):
             print(request.user)
             # print(new_review)
             # print(new_review.author)
-            new_review.author = request.user 
+            new_review.author = request.user
             print(new_review)
             new_review.save()
-            messages.add_message(request, messages.SUCCESS, 'Your review has been uploaded!')
+            messages.add_message(request, messages.SUCCESS,
+                                 'Your review has been uploaded!')
             return redirect(reverse('reviews:review-display'))
         else:
-            messages.add_message(request, messages.WARNING, 'Somethings gone wrong please try again!')
+            messages.add_message(request, messages.WARNING,
+                                 'Somethings gone wrong please try again!')
             return
     template_name = "reviews/create_review.html"
     return render(request, template_name, context)
@@ -63,15 +64,17 @@ def review_update(request, slug):
     review_form = EditPost(instance=review)
     if request.method == 'POST':
         review_form = EditPost(request.POST,
-                             request.FILES,
-                             instance=review)
+                               request.FILES,
+                               instance=review)
         if review_form.is_valid():
             try:
                 review_form.save()
-                messages.add_message(request, messages.SUCCESS, 'The review has been successfully')
+                messages.add_message(request, messages.SUCCESS,
+                                     'The review has been successfully')
                 return redirect('reviews:review-display')
-            except:
-                messages.add_message(request, messages.WARNING, 'Are you sure all the feilds are filled out correctly?')
+            except Exception:
+                messages.add_message(request, messages.WARNING,
+                                     'is it all filled out correctly?')
                 context = {
                     'form': review_form
                 }
@@ -87,28 +90,9 @@ def review_update(request, slug):
 def review_delete(request, slug):
     review = get_object_or_404(ReviewPost, slug=slug)
     if not (request.user == review.author or request.user.is_superuser):
-        messages.add_message(request, messages.WARNING, 'Somethings gone wrong please try again!')
-        return redirect ('reviews:review-display')
+        messages.add_message(request, messages.WARNING,
+                             'Somethings gone wrong please try again!')
+        return redirect('reviews:review-display')
     review.delete()
     messages.add_message(request, messages.SUCCESS, 'Review Deleted!')
-    return redirect ('reviews:review-display')
-
-
-
-
-# class DeleteReview(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
-#     """
-#     Class base view of deleting an original post
-#     """
-#     model = ReviewPost
-#     success_message = "Post Deleted"
-#     success_url = '/reviews/'
-#     def test_func(self):
-#         post = self.get_object()
-#         if self.request.user != post.author:
-#             return False
-#         return True
-    
-
-
-    
+    return redirect('reviews:review-display')
