@@ -2,18 +2,22 @@
 {% load static %}
 
 {% block content %}
-<h1 class="review-page-title">Glass Fish Reviews</h1>
-<!-- this is a loop through all reviews -->
-<div class="rveiews-container">
-    {% if user.is_authenticated %}
+<div class="height-controller">
+    <h1 class="review-page-title">Glass Fish Reviews</h1>
+    <!-- this is a loop through all reviews -->
     <div>
-        <button class="btn btn-secondary"><a href="{% url 'reviews:create' %}">Create a Review!</a></button>
+        {% if user.is_authenticated %}
+        <div>
+            <button class="btn btn-secondary review-page-btn"><a href="{% url 'reviews:create' %}">Create a
+                    Review!</a></button>
+        </div>
+        {% else %}
+        <div>
+            <button class="btn btn-secondary"><a href="{% url 'accounts:signup' %}">Join The Site and Post a
+                    Review!</a></button>
+        </div>
+        {% endif %}
     </div>
-    {% else %}
-    <div>
-        <button class="btn btn-secondary"><a href="{% url 'accounts:signup' %}">Join The Site and Post a Review!</a></button>
-    </div>
-    {% endif %}
     <div class="card" style="width: 18rem;">
         {% for reviews in reviews_all %}
         <a href="{% url 'reviews:reviews-detail' reviews.slug %}">
@@ -27,7 +31,8 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ reviews.title }}</h5>
                         <!-- the "safe" tag prevents the code tags from displaying  -->
-                        <p class="card-text">{{ reviews.content|truncatechars:100 | safe }}<br> By- {{ reviews.author }}
+                        <p class="card-text">
+                            {{ reviews.content|truncatechars:100 | safe }}<br> By- {{ reviews.author }}
                         </p>
                     </div>
                 </div>
@@ -35,7 +40,7 @@
         </a>
         {% endfor %}
     </div>
+    <button class="btn btn-secondary review-page-btn"><a href="{% url 'main:main' %}">Back!</a></button>
 </div>
-<button class="btn btn-secondary"><a href="{% url 'main:main' %}">Back!</a></button>
 <!-- closing the loop ^ -->
 {% endblock %}

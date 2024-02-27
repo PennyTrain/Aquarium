@@ -178,8 +178,13 @@ i {
     padding: 14px 16px;
     text-decoration: none;
     font-size: 20px;
+    background-color: #00004D;
 }
 
+.navbar-border {
+    color: white;
+    background-color: #00004D;
+}
 /* This makes my navbar items underlined when the mouse is hovered over them */
 .nav-items:hover {
     text-decoration: underline;
@@ -276,67 +281,59 @@ iframe {
 }
 
 /* The mini titles on the visit page have a font size of 25 pixels and a gap of .5 rem from their sub content */
+
+.form-container {
+    background-color: rgba(0, 0, 77, 0.7);
+    color: white;
+    border-radius: 10px;
+    border: 4px solid black;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 1rem;
+}
+
+.height-controller {
+    height: 100vh;
+}
+.create-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    align-items: center;
+}
+
+.add-review {
+    color: white;
+    font-size: 20px;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: underline;
+}
+
 .visit-title {
     padding: .5rem;
     font-size: 25px;
 }
 
 .review-page-title {
-    color: white;
-    font-size: 30px;
+    color: #00004d;
     text-align: center;
+    font-size: 30px;
+    text-decoration: underline;
+    padding: 1rem;
 }
 
+.review-page-btn{
+    margin: 0 auto;
+    display: flex;
+}
 
 button {
     color: #00004d;
     cursor: pointer;
-}
-
-.reviews-display {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 10px;
-}
-
-.reviews-detail {
-    background-color: #00004d;
-    color: white;
-    border: 2px solid #000;
-    border-radius: 10px;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-content: center;
-}
-
-.logout-form {
-    background-color: rgba(0, 0, 77, 0.7);
-    color: white;
-    border: 4px solid #000;
-    border-radius: 10px;
-    text-align: center;
-    margin-top: 30px;
-    padding: .5rem;
-    width: 30rem;
-    margin: 0 auto;
-    margin: 2rem;
-    display: flex;
-    flex-direction: column;
-}
-
-.login-form {
-    background-color: rgba(0, 0, 77, 0.7);
-    color: white;
-    display: flex;
-    text-align: center;
-    padding: 10px;
-    border: 4px solid #000;
-    border-radius: 10px;
-    margin: 2rem;
-    flex-direction: column;
-    gap: 10px;
 }
 
 .login-inputs{
@@ -345,42 +342,6 @@ button {
     align-items: center;
 }
 
-.register-form {
-    background-color: rgba(0, 0, 77, 0.7);
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    border: 4px solid #000;
-    border-radius: 10px;
-    margin: 1rem;
-    margin-top: 4rem;
-    display: flex;
-    gap: 10px;
-    flex-direction: column;
-}
-
-.signup {
-    display: flex;
-    gap: 5px;
-    flex-direction: column;
-    align-items: center;
-}
-
-.login {
-    display: flex;
-    gap: 5px;
-    flex-direction: column;
-    align-items: center;
-}
-
-.profile-display {
-    background-color: rgba(0, 0, 77, 0.7);
-    color: white;
-    text-align: center;
-    border-radius: 50px;
-    border: 4px solid black;
-    margin: 2rem;
-}
 
 .profile-image {
     border-radius: 20px;
@@ -411,17 +372,88 @@ button {
 .helptext {
     display: none;
 }
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-btns {
+    padding: 1rem;
+}
+
+.account-heading {
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.delete-title{
+	padding: 1rem;
+	font-size: 20px;
+}
+
+.delete-content {
+    padding: 1rem;
+}
 /* MAKING IT RESPONSIVE! */
 
 @media screen and (max-width: 950px) {
 
-    /* This makes the galary page responsive, as when the screen drops down to a max width of 950 pixels the images display 3 in a row
-instead of displaying 4 in a row */
 
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
 
-    /* This makes the galary page responsive, as when the screen drops down to a max width of 950 pixels the images display 2 in a row
-instead of displaying 3 in a row */
+    iframe {
+        height: 30rem;
+        width: 20rem;
+        justify-content: center;
+    }
+
+    .home-content {
+        display: none;
+    }
+
+    .homepage-title {
+        padding: 1rem;
+        font-size: 30px;
+    }
+
+    nav ul {
+        text-align: center; /* Center the list */
+    }
+
+    .title {
+        text-align: center; /* Center the title */
+        clear: both; /* Clear the float from the title */
+    }
+
+    .nav-items {
+        float: none; /* Remove float */
+        display: inline-block; /* Display items inline */
+    }
+
+}
+
+@media screen and (max-width: 450px) {
+
+    iframe {
+        height: 25rem;
+        width: 14rem;
+        justify-content: center;
+    }
+
+    .display {
+        display: none;
+    }
+
+    .homepage-title {
+        font-size: 30px;
+    }
+    
+    textarea {
+        width: 15rem;
+    }
+
 }

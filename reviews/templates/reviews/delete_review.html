@@ -2,16 +2,14 @@
 {% load static %}
 
 {% block content %}
-<div class="delete-review">
+<div class="form-container">
     <h1>Delete Review</h1>
     <h3>Delete:</h3>
     <form method="POST">
         {% csrf_token %}
         <strong>Are you sure?</strong>
 </div>
-
 <button>Delete Post</button>
-
 </form>
 <button><a href="{% url 'main:main' %}">Cancel!</a></button>
 {% endblock %}

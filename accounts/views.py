@@ -10,7 +10,7 @@ from .forms import (UserRegisterForm,
                     )
 
 
-def account_signup(request):
+def profile_register(request):
     """
     Is what is run when the signup url is called upon
     """
@@ -19,7 +19,7 @@ def account_signup(request):
         if form.is_valid():
             username = form.cleaned_data.get('username')
             form.save()
-            mess = f"Account had been created for {username}!"
+            mess = f"Your account has been created {username}!"
             messages.success(request, mess)
             return redirect('accounts:login')
     else:
@@ -30,7 +30,7 @@ def account_signup(request):
 # Creates the login_view
 
 
-def login_view(request):
+def profile_login(request):
     """
     Is what is run when the login in url is called upon
     """
@@ -42,7 +42,7 @@ def login_view(request):
             if 'next' in request.POST:
                 return redirect(request.POST.get('next'))
             else:
-                messages.info(request, 'You are successfully logged in!')
+                messages.add_message(request, messages.SUCCESS, 'You have been logged in!')
                 return redirect('main:main')
     else:
         form = AuthenticationForm()
@@ -52,13 +52,13 @@ def login_view(request):
 # Creates the log out view
 
 
-def logout_view(request):
+def profile_logout(request):
     """
     Logsout the user to the site
     """
     if request.method == 'POST':
         logout(request)
-        messages.info(request, 'Your have been Logged Out.')
+        messages.add_message(request, messages.SUCCESS, 'You have been logged out!')
         return redirect('main:main')
     form = AuthenticationForm()
     return render(request, 'accounts/log-out.html', {'form': form})
@@ -81,10 +81,10 @@ def profile_view(request):
             try:
                 profile_form.save()
                 account_form.save()
-                messages.info(request, 'Profile Updated Successfully.')
+                messages.add_message(request, messages.SUCCESS, 'Your profile has been updated!')
                 return redirect('accounts:profile')
             except:
-                messages.warning(request, 'Please Use an Image')
+                messages.add_message(request, messages.WARNING, 'Are you sure all the feilds are filled out correctly?')
                 account_form = AccountUpdateForm(request.POST,
                                                  instance=request.user)
                 profile_form = ProfileFormUpdate(request.POST,
@@ -102,7 +102,7 @@ def profile_view(request):
     return render(request, 'accounts/user-profile.html', context)
 
 
-def delete_profile(request):
+def profile_delete(request):
     """
     deletes the profile view
     """
@@ -110,11 +110,12 @@ def delete_profile(request):
         delete_form = DeleteUserForm(request.POST, instance=request.user)
         user = request.user
         user.delete()
-        messages.warning(request, 'Your profile has been deleted.')
+        messages.warning(request, 'You have successfully deleted your profile!!')
         return redirect('accounts:signup')
     else:
         delete_form = DeleteUserForm(instance=request.user)
     context = {
         'delete_form': delete_form
     }
+    messages.add_message(request, messages.WARNING, 'Sorry! Somethings gone')
     return render(request, 'accounts/delete.html')

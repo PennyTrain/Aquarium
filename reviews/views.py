@@ -4,10 +4,11 @@ from .models import ReviewPost
 from django.views.generic import DeleteView
 from .forms import EditPost, CreatePost
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib import messages
 
 
 # View for running reviews
-def ReviewPostDisplay(request):
+def review_display(request):
     template_name = "reviews/reviews.html"
     reviews_all = ReviewPost.objects.all()
     context = {
@@ -16,7 +17,7 @@ def ReviewPostDisplay(request):
     return render(request, template_name, context)
 
 
-def ReviewDetail(request, slug):
+def review_detail(request, slug):
     review = get_object_or_404(ReviewPost, slug=slug)
     template_name = "reviews/reviews_details.html"
     context = {
@@ -26,7 +27,7 @@ def ReviewDetail(request, slug):
 
 
 @login_required 
-def CreateReview(request):
+def review_create(request):
     """
     A view to create the reviews
     """
@@ -44,17 +45,17 @@ def CreateReview(request):
             new_review.author = request.user 
             print(new_review)
             new_review.save()
-            # message here
-            return redirect(reverse('reviews:ReviewPostDisplay'))
+            messages.add_message(request, messages.SUCCESS, 'Your review has been uploaded!')
+            return redirect(reverse('reviews:review-display'))
         else:
-            # message is review fails to post
+            messages.add_message(request, messages.WARNING, 'Somethings gone wrong please try again!')
             return
     template_name = "reviews/create_review.html"
     return render(request, template_name, context)
 
 
 @login_required
-def UpdateReview(request, slug):
+def review_update(request, slug):
     """
     update
     """
@@ -67,28 +68,32 @@ def UpdateReview(request, slug):
         if review_form.is_valid():
             try:
                 review_form.save()
-                return redirect('reviews:ReviewPostDisplay')
+                messages.add_message(request, messages.SUCCESS, 'The review has been successfully')
+                return redirect('reviews:review-display')
             except:
+                messages.add_message(request, messages.WARNING, 'Are you sure all the feilds are filled out correctly?')
                 context = {
                     'form': review_form
                 }
                 return render(request,
                               'reviews/update_review.html', context)
-
     context = {
         'form': review_form
     }
-
     return render(request, 'reviews/update_review.html', context)
 
 
 @login_required
-def DeleteReview(request, slug):
+def review_delete(request, slug):
     review = get_object_or_404(ReviewPost, slug=slug)
     if not (request.user == review.author or request.user.is_superuser):
-        return redirect ('reviews:ReviewPostDisplay')
+        messages.add_message(request, messages.WARNING, 'Somethings gone wrong please try again!')
+        return redirect ('reviews:review-display')
     review.delete()
-    return redirect ('reviews:ReviewPostDisplay')
+    messages.add_message(request, messages.SUCCESS, 'Review Deleted!')
+    return redirect ('reviews:review-display')
+
+
 
 
 # class DeleteReview(LoginRequiredMixin, UserPassesTestMixin, DeleteView):

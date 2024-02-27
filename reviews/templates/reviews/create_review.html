@@ -4,36 +4,19 @@
 
 
 {% block content %}
-    <div class=""></div>
-    <div class="">
-        <div class="row">
-            <div class="col-12 col-md-6">
-                {% if review %}
-                    <h2>Edit Review</h2>
-                {% else %}
-                    <h2>Add review</h2>
-                {% endif %}
-                <form method="POST" action="{% if review %}{% url 'reviews:update-review' review.slug %}{% else %}{% url 'reviews:create' %}{% endif %}" class="form mb-1" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ form }}
-                    <div class="text-right">
-                        <a class="btn" href="{% url 'reviews:ReviewPostDisplay' %}">Cancel</a>
-                        <button type="submit" class="btn btn-primary mt-2">{% if review %}Save Changes{% else %}Add Review{% endif %}</button>
-                    </div>
-                </form>
-            </div>
+<div class="height-controller">
+<div class="form-container">
+    <strong class="add-review">Add Review!</strong>
+    <form method="POST" class="create-form"
+        action="{% if review %}{% url 'reviews:update-review' review.slug %}{% else %}{% url 'reviews:create' %}{% endif %}"
+        class="form mb-1" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <div class="text-right">
+            <button class="btn btn-secondary"><a href="{% url 'reviews:review-display' %}">Cancel</a></button>
+            <button type="submit" class="btn btn-primary">{% if review %}Save Changes{% else %}Add Review{% endif %}</button>
         </div>
-    </div>
+    </form>
+</div>
+</div>
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-

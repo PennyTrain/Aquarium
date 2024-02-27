@@ -1,17 +1,20 @@
 {% extends 'base.html' %}
 {% load cloudinary %}
 {% block content %}
+<div class="height-controller">
+<div class="form-container">
 <form method="POST">
     {% csrf_token %}
     <fieldset class="form-group">
-        <legend class="border-bottom mb-4">YOUR ABOUT TO LEAVE FOR GOOD!!!!</legend>
-        <p>Are you sure you want to delete your account? This will permanently delete your
-            profile and any content you have generated.</p>
+        <h1 class="delete-title">You are about to permanently delete your account!</h1>
+        <p class="delete-content">Are you absolutely positive you want to delete your account?</p>
         {{ form }}
     </fieldset>
     <div class="form-group">
-        <button class="btn btn-danger" type="submit">Delete Account</button>
+        <button class="btn btn-danger" type="submit">Delete!!!</button>
         <a class="btn btn-dark" href="{% url 'accounts:user-profile' %}">Cancel</a>
     </div>
 </form>
+</div>
+</div>
 {% endblock %}

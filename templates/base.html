@@ -9,11 +9,19 @@
 
 <head>
     <title>GlassFish Aquarium</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     {% load bootstrap5 %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
+
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://res.cloudinary.com/dgz5gpe5z/image/upload/v1708630039/apple-touch-icon_ifr0ns.png">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://res.cloudinary.com/dgz5gpe5z/image/upload/v1708630073/favicon-32x32_jiiyy8.png">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://res.cloudinary.com/dgz5gpe5z/image/upload/v1708630066/favicon-16x16_kfarrm.png">
+
     <!-- Google Fonts CSS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -27,61 +35,66 @@
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
 </head>
 
 <body>
     <div>
         <!-- This is the navbar -->
-        <nav>
-            <ul>
-                <!-- The title that floats left -->
-                <li class="title"><i class="fa-solid fa-fish-fins"></i> Glass Fish <i class="fa-solid fa-fish-fins"></i>
-                </li>
-                <!-- The navbar items which direct you to a new page -->
-                {% if user.is_authenticated %}
-                <li class="nav-items">
-                    <a href="{% url 'accounts:account_logout' %}">
-                        Log out
-                    </a>
-                </li>
-                <li class="nav-items">
-                    <a href="{% url 'accounts:user-profile' %}">
-                        Profile
-                    </a>
-                </li>
-                <!-- profile icon where u can access ur profile -->
-                {% else %}
-                <li class="nav-items">
-                    <a href="{% url 'accounts:login' %}">
-                        Log in
-                    </a>
-                </li>
-                {% endif %}
-                <li class="nav-items">
-                    <a class="links" href="{% url 'main:gallery' %}">
-                        Gallery
-                    </a>
-                </li>
-                <li class="nav-items">
-                    <a href="{% url 'main:visit' %}">
-                        Visit
-                    </a>
-                </li>
-                <li class="nav-items">
-                    <a href="{% url 'reviews:ReviewPostDisplay' %}">
-                        Reviews
-                    </a>
-                </li>
-                <li class="nav-items">
-                    <a href="{% url 'main:main' %}">
-                        Home
-                    </a>
-                </li>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid navbar-border">
+          <a class="navbar-brand homepage-title" href="#"><i class="fa-solid fa-fish-fins"></i> Glass Fish <i class="fa-solid fa-fish-fins"></i></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+              {% if user.is_authenticated %}
+              <li class="nav-items">
+                  <a href="{% url 'accounts:account_logout' %}">
+                      Log out
+                  </a>
+              </li>
+              <li class="nav-items">
+                  <a href="{% url 'accounts:user-profile' %}">
+                      Profile
+                  </a>
+              </li>
+              <!-- profile icon where u can access ur profile -->
+              {% else %}
+              <li class="nav-items">
+                  <a href="{% url 'accounts:login' %}">
+                      Log in
+                  </a>
+              </li>
+              {% endif %}
+              <li class="nav-items">
+                  <a class="links" href="{% url 'main:gallery' %}">
+                      Gallery
+                  </a>
+              </li>
+              <li class="nav-items">
+                  <a href="{% url 'main:visit' %}">
+                      Visit
+                  </a>
+              </li>
+              <li class="nav-items">
+                  <a href="{% url 'reviews:review-display' %}">
+                      Reviews
+                  </a>
+              </li>
+              <li class="nav-items">
+                  <a href="{% url 'main:main' %}">
+                      Home
+                  </a>
+              </li>
             </ul>
-        </nav>
-    </div>
+          </div>
+        </div>
+      </nav>
+
+
 
     <!-- THIS IS WHERE ALL CONTENT IS RENDERED -->
     {% block content %}
@@ -110,8 +123,8 @@
                     </a>
                 </li>
                 {% endif %}
-                <li class="footer-items">
-                    <a href="{% url 'reviews:ReviewPostDisplay' %}">
+                <li class="footer-items display">
+                    <a href="{% url 'reviews:review-display' %}">
                         Reviews
                     </a>
                 </li>
@@ -120,12 +133,12 @@
                         Home
                     </a>
                 </li>
-                <li class="footer-items">
+                <li class="footer-items display">
                     <a href="{% url 'main:visit' %}">
                         Visit
                     </a>
                 </li>
-                <li class="footer-items">
+                <li class="footer-items display">
                     <a href="{% url 'main:gallery' %}">
                         Gallary
                     </a>
@@ -135,9 +148,9 @@
     </div>
 
     <script src="https://kit.fontawesome.com/f302dda9d1.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
-        </script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>
