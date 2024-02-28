@@ -33,7 +33,7 @@
                                 {% endif %}
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">{{ reviews.title }}</h5>
+                            <h5 class="card-title review-title">{{ reviews.title }}</h5>
                             <!-- the "safe" tag prevents the code tags from displaying  -->
                             <p class="card-text">
                                 {{ reviews.content|truncatechars:100 | safe }}<br> By- {{ reviews.author }}
@@ -47,7 +47,7 @@
         {% endfor %}
     </div>
     <div class="review-page-buttons">
-        <a class="back-button center" href="{% url 'main:main' %}">Back!</a>
+        <a class="back-button" href="{% url 'main:main' %}">Back!</a>
     </div>
     <!-- closing the loop ^ -->
     {% endblock %}

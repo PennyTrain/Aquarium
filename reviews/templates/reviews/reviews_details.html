@@ -11,13 +11,16 @@
                 {% else %}
                 <img class="card-img" src="{{ reviews.featured_image.url }}" alt="{{ reviews.title }}">
                 {% endif %}
-                <h5>Title: {{ review.title }}</h5>
+            </div>
+            <div class="review-content">
+                <h5 class="review-title">{{ review.title }}</h5>
                 <p>{{ review.content|truncatechars:100 | safe}} <br> by {{ review.author }}</p>
             </div>
+        </div>
         {% if user == review.author or user.is_superuser %}
-        <div>
-            <a class="btn btn-primary btn-sm mt-1 mb-1" href="{% url 'reviews:update-review' review.slug %}">Update</a>
-            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'reviews:delete-review' review.slug %}">Delete</a>
+        <div class="admin-buttons">
+            <a class="update-button" href="{% url 'reviews:update-review' review.slug %}">Update</a>
+            <a class="delete-button" href="{% url 'reviews:delete-review' review.slug %}">Delete</a>
         </div>
         {% endif %}
         <div>

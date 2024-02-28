@@ -22,7 +22,6 @@ def profile_register(request):
             messages.success(request, f"Your account has been created!")
             return redirect('accounts:login')
     else:
-        messages.warning(request, f"Have you got an account?")
         form = UserRegisterForm()
     return render(request, 'accounts/signup.html', {'form': form})
 
@@ -123,5 +122,4 @@ def profile_delete(request):
     context = {
         'delete_form': delete_form
     }
-    messages.add_message(request, messages.WARNING, 'Sorry! Somethings gone')
     return render(request, 'accounts/delete.html')

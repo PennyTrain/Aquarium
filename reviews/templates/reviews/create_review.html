@@ -14,7 +14,7 @@
         {{ form }}
         <div class="text-right">
             <a class="back-button" href="{% url 'reviews:review-display' %}">Cancel</a>
-            <button type="submit" class="btn btn-primary">{% if review %}Save Changes{% else %}Add Review{% endif %}</button>
+            <button type="submit" class="update-button">{% if review %}Save Changes{% else %}Add Review{% endif %}</button>
         </div>
     </form>
 </div>
