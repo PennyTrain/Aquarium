@@ -11,7 +11,7 @@
                 {% else %}
                 <img class="card-img" src="{{ reviews.featured_image.url }}" alt="{{ reviews.title }}">
                 {% endif %}
-                <h5>{{ review.title }}</h5>
+                <h5>Title: {{ review.title }}</h5>
                 <p>{{ review.content|truncatechars:100 | safe}} <br> by {{ review.author }}</p>
             </div>
         {% if user == review.author or user.is_superuser %}

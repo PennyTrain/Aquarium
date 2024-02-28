@@ -23,13 +23,15 @@
                 <div>
                     <div class="review">
                         <div class="review-images">
-                        {% if "default" in ReviewPost.featured_image.url %}
-                            <img class="card-img-top" src="{{ reviews.featured_image.url }}" alt="placeholder image">
-                            {% else %}
-                            <img class="card-img-top" src=" {{ reviews.featured_image.url }}" alt="{{ reviews.title }}">
-                            {% endif %}
+                            <a href="{% url 'reviews:reviews-detail' reviews.slug %}">
+                            {% if "default" in ReviewPost.featured_image.url %}
+                                <img class="card-img-top" src="{{ reviews.featured_image.url }}"
+                                    alt="placeholder image">
+                                {% else %}
+                                <img class="card-img-top" src=" {{ reviews.featured_image.url }}"
+                                    alt="{{ reviews.title }}">
+                                {% endif %}
                         </div>
-                        <a href="{% url 'reviews:reviews-detail' reviews.slug %}">
                         <div class="card-body">
                             <h5 class="card-title">{{ reviews.title }}</h5>
                             <!-- the "safe" tag prevents the code tags from displaying  -->
@@ -37,7 +39,7 @@
                                 {{ reviews.content|truncatechars:100 | safe }}<br> By- {{ reviews.author }}
                             </p>
                         </div>
-                    </a>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -45,7 +47,7 @@
         {% endfor %}
     </div>
     <div class="review-page-buttons">
-    <a class="back-button center" href="{% url 'main:main' %}">Back!</a>
-</div>
+        <a class="back-button center" href="{% url 'main:main' %}">Back!</a>
+    </div>
     <!-- closing the loop ^ -->
     {% endblock %}

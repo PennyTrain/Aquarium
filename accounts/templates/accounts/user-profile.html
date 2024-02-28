@@ -14,7 +14,7 @@
     <h2 class="account-heading">{{ user.username }}</h2>
     <form method="POST" class="uniForm" enctype="multipart/form-data">
       {% csrf_token %}
-      <div class="form-group signup">
+      <div class="form-group">
         <p>Profile Info</p>
         {{ account_form }}
         {{ profile_form }}

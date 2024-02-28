@@ -19,10 +19,10 @@ def profile_register(request):
         if form.is_valid():
             username = form.cleaned_data.get('username')
             form.save()
-            mess = f"Your account has been created {username}!"
-            messages.success(request, mess)
+            messages.success(request, f"Your account has been created!")
             return redirect('accounts:login')
     else:
+        messages.warning(request, f"Have you got an account?")
         form = UserRegisterForm()
     return render(request, 'accounts/signup.html', {'form': form})
 

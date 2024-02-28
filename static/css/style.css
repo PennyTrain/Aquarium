@@ -247,7 +247,7 @@ footer {
 /* This makes the homepage-title fontsize 25px */
 .homepage-title {
     font-size: 40px;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 /* The video on the homepage is centered and 25rem tall and 30rem wide */
@@ -266,6 +266,12 @@ iframe {
     margin-top: 10px;
 }
 
+.message-container {
+    background-color: rgba(0, 0, 77, 0.7);
+    border-radius: 10px;
+    color: white;
+}
+
 .card-img-top {
     width: 17.5rem;
     max-height: 12rem;
@@ -276,10 +282,6 @@ iframe {
     background-color: #00004D;
 }
 
-.review-page-buttons {
-    text-align: center;
-    padding: 1rem;
-}
 
 /* The text on the visit page is centered, has a padding of 1rem, it floats to the left, and has a fontsize of 20 pixels */
 .visit-text {
@@ -328,7 +330,7 @@ iframe {
     font-size: 20px;
     padding: 1rem;
     text-align: center;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .visit-title {
@@ -340,7 +342,7 @@ iframe {
     color: #00004d;
     text-align: center;
     font-size: 30px;
-    text-decoration: underline;
+    text-decoration: none;
     padding: 1rem;
 }
 
@@ -349,32 +351,8 @@ iframe {
     display: flex;
 }
 
-button {
-    color: #00004d;
-    cursor: pointer;
-}
 
-.delete-button {
-    background-color: red;
-    color: white;
-    border: 1px solid transparent;
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    border-radius: 0.25rem;  
-    font-weight: 400;
-    line-height: 1.5;
-}
 
-.back-button {
-    background-color: grey;
-    color: white;
-    border: 1px solid transparent;
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    border-radius: 0.25rem;
-    font-weight: 400;
-    line-height: 1.5;
-}
 
 .login-inputs{
     display: flex;
@@ -417,6 +395,7 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: .3rem;
 }
 
 .profile-btns {
