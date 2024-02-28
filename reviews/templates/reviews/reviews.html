@@ -4,41 +4,48 @@
 {% block content %}
 <div class="height-controller">
     <h1 class="review-page-title">Glass Fish Reviews</h1>
-    <!-- this is a loop through all reviews -->
     <div>
         {% if user.is_authenticated %}
-        <div>
-            <a class="back-button" href="{% url 'reviews:create' %}">Create a Review!</a>
+        <div class="review-page-buttons">
+            <a class="back-button center" href="{% url 'reviews:create' %}">Create a Review!</a>
         </div>
         {% else %}
         <div>
-            <a class="back-button" href="{% url 'accounts:signup' %}">Join The Site and Post a Review!</a>
+            <a class="back-button center" href="{% url 'accounts:signup' %}">Join The Site and Post a Review!</a>
         </div>
         {% endif %}
     </div>
-    <div class="card" style="width: 18rem;">
+    <!-- this is a loop through all reviews -->
+    <div class="photos-container">
         {% for reviews in reviews_all %}
-        <a href="{% url 'reviews:reviews-detail' reviews.slug %}">
-            <div>
-                <div class="">
-                    {% if "default" in ReviewPost.featured_image.url %}
-                    <img class="card-img" src="{{ reviews.featured_image.url }}" alt="placeholder image">
-                    {% else %}
-                    <img class="card-img" src=" {{ reviews.featured_image.url }}" alt="{{ reviews.title }}">
-                    {% endif %}
-                    <div class="card-body">
-                        <h5 class="card-title">{{ reviews.title }}</h5>
-                        <!-- the "safe" tag prevents the code tags from displaying  -->
-                        <p class="card-text">
-                            {{ reviews.content|truncatechars:100 | safe }}<br> By- {{ reviews.author }}
-                        </p>
+        <div class="card-container">
+            <div class="card review-card" style="width: 18rem;">
+                <div>
+                    <div class="review">
+                        <div class="review-images">
+                        {% if "default" in ReviewPost.featured_image.url %}
+                            <img class="card-img-top" src="{{ reviews.featured_image.url }}" alt="placeholder image">
+                            {% else %}
+                            <img class="card-img-top" src=" {{ reviews.featured_image.url }}" alt="{{ reviews.title }}">
+                            {% endif %}
+                        </div>
+                        <a href="{% url 'reviews:reviews-detail' reviews.slug %}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ reviews.title }}</h5>
+                            <!-- the "safe" tag prevents the code tags from displaying  -->
+                            <p class="card-text">
+                                {{ reviews.content|truncatechars:100 | safe }}<br> By- {{ reviews.author }}
+                            </p>
+                        </div>
+                    </a>
                     </div>
                 </div>
             </div>
-        </a>
+        </div>
         {% endfor %}
     </div>
-    <a class="back-button" href="{% url 'main:main' %}">Back!</a>
+    <div class="review-page-buttons">
+    <a class="back-button center" href="{% url 'main:main' %}">Back!</a>
 </div>
-<!-- closing the loop ^ -->
-{% endblock %}
+    <!-- closing the loop ^ -->
+    {% endblock %}

@@ -127,6 +127,17 @@ q:after {
 /*end of css reset*/
 
 
+
+.reviews-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 18rem;
+}
+
 /* Sets the background color, the font color, and height of the body */
 body {
     background-color: hsl(225, 91%, 82%);
@@ -256,8 +267,18 @@ iframe {
 }
 
 .card-img-top {
-    width: auto;
+    width: 17.5rem;
     max-height: 12rem;
+}
+
+.review-images {
+    text-align: center;
+    background-color: #00004D;
+}
+
+.review-page-buttons {
+    text-align: center;
+    padding: 1rem;
 }
 
 /* The text on the visit page is centered, has a padding of 1rem, it floats to the left, and has a fontsize of 20 pixels */

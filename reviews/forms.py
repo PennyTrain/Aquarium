@@ -14,4 +14,4 @@ class EditPost(forms.ModelForm):
     """
     class Meta:
         model = ReviewPost
-        fields = ['title', 'content', ]
+        exclude = ('slug', 'author', 'status',)
