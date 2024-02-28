@@ -212,6 +212,10 @@ footer {
     padding: .5rem;
 }
 
+.form-group > a {
+    display:none;
+}
+
 /* When the footer items are hovered over they are underlined */
 .footer-items:hover {
     text-decoration: underline;
