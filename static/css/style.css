@@ -267,9 +267,19 @@ iframe {
 }
 
 .message-container {
-    background-color: rgba(0, 0, 77, 0.7);
+    background-color: rgb(0, 255, 162);
     border-radius: 10px;
-    color: white;
+    color: black;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.reviews-text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem
 }
 
 .card-img-top {
@@ -396,13 +406,12 @@ iframe {
     font-size: 20px;
 }
 
-
-
 .review-content {
     text-align: center;
     gap: 0.5rem;
     display: flex;
     flex-direction: column;
+    padding: 1rem;
 }
 
 
@@ -458,6 +467,7 @@ iframe {
     background-color:grey;
     color:white;
     padding: 0.5rem;
+    margin-top: .5rem;
     border-radius: 10px;
 }
 

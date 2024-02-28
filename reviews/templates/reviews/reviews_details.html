@@ -6,15 +6,12 @@
 <div class="height-controller">
     <div class="form-container">
         <div>
-            {% if "default" in ReviewPost.featured_image.url %}
-            <img class="card-img" src="{{ reviews.featured_image.url }}" alt="placeholder image">
-            {% else %}
-            <img class="card-img" src="{{ reviews.featured_image.url }}" alt="{{ reviews.title }}">
-            {% endif %}
+            <img class="card-img-top" src="{{ review.featured_image.url }}" alt="{{ reviews.title }}">        
         </div>
         <div class="review-content">
-            <h5 class="review-title">{{ review.title }}</h5>
-            <p>{{ review.content|truncatechars:100 | safe}} <br> by {{ review.author }}</p>
+            <h5 class="review-title capitalize">{{ review.title }}</h5>
+            <p class="card-text capitalize">{{ review.content|truncatechars:100 | safe}}</p>
+            <p class="card-text capitalize">By {{ review.author }}</p>
         </div>
         {% if user == review.author or user.is_superuser %}
         <div class="admin-buttons">

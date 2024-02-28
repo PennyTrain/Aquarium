@@ -25,7 +25,7 @@ def review_detail(request, slug):
     return render(request, template_name, context)
 
 
-@login_required
+@login_required(login_url="/accounts/login/")
 def review_create(request):
     """
     A view to create the reviews
@@ -55,7 +55,7 @@ def review_create(request):
     return render(request, template_name, context)
 
 
-@login_required
+@login_required(login_url="/accounts/login/")
 def review_update(request, slug):
     """
     update
@@ -86,7 +86,7 @@ def review_update(request, slug):
     return render(request, 'reviews/update_review.html', context)
 
 
-@login_required
+@login_required(login_url="/accounts/login/")
 def review_delete(request, slug):
     review = get_object_or_404(ReviewPost, slug=slug)
     if not (request.user == review.author or request.user.is_superuser):

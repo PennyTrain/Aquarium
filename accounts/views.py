@@ -19,7 +19,8 @@ def profile_register(request):
         if form.is_valid():
             username = form.cleaned_data.get('username')
             form.save()
-            messages.success(request, f"Your account has been created!")
+            messages.add_message(request, messages.SUCCESS,
+                             'Account created!')
             return redirect('accounts:login')
     else:
         form = UserRegisterForm()
@@ -52,7 +53,7 @@ def profile_login(request):
 
 # Creates the log out view
 
-
+@login_required(login_url="/accounts/login/")
 def profile_logout(request):
     """
     Logsout the user to the site
@@ -84,7 +85,7 @@ def profile_view(request):
                 profile_form.save()
                 account_form.save()
                 messages.add_message(request, messages.SUCCESS,
-                                     'Your profile has been updated!')
+                                     'Your profile has been updated')
                 return redirect('accounts:profile')
             except Exception:
                 messages.add_message(request, messages.WARNING,
@@ -106,6 +107,7 @@ def profile_view(request):
     return render(request, 'accounts/user-profile.html', context)
 
 
+@login_required(login_url="/accounts/login/")
 def profile_delete(request):
     """
     deletes the profile view
@@ -114,12 +116,12 @@ def profile_delete(request):
         delete_form = DeleteUserForm(request.POST, instance=request.user)
         user = request.user
         user.delete()
-        messages.warning(request,
-                         'You have successfully deleted your profile!!')
+        messages.add_message(request, messages.SUCCESS,
+                             'Your profile has been deleted!')
         return redirect('accounts:signup')
     else:
         delete_form = DeleteUserForm(instance=request.user)
     context = {
         'delete_form': delete_form
     }
-    return render(request, 'accounts/delete.html')
+    return render(request, 'accounts/delete.html', context)
