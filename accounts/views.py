@@ -12,7 +12,7 @@ from .forms import (UserRegisterForm,
 
 def profile_register(request):
     """
-    Is what is run when the signup url is called upon
+    This enables people to create an account if they do not already have one
     """
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
@@ -32,7 +32,7 @@ def profile_register(request):
 
 def profile_login(request):
     """
-    Is what is run when the login in url is called upon
+    This enables people to log in to their account
     """
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
@@ -56,7 +56,7 @@ def profile_login(request):
 @login_required(login_url="/accounts/login/")
 def profile_logout(request):
     """
-    Logsout the user to the site
+    profile_logout enables the user to logout
     """
     if request.method == 'POST':
         logout(request)
@@ -70,7 +70,7 @@ def profile_logout(request):
 @login_required(login_url="/accounts/login/")
 def profile_view(request):
     """
-    Shows the Users profile only if logged in
+    This shows the users their own profile if they have one and they are logged into it
     """
     profile_form = ProfileFormUpdate(instance=request.user.profile)
     account_form = AccountUpdateForm(instance=request.user)
@@ -110,7 +110,7 @@ def profile_view(request):
 @login_required(login_url="/accounts/login/")
 def profile_delete(request):
     """
-    deletes the profile view
+    This enables users to delete their profile
     """
     if request.method == 'POST':
         delete_form = DeleteUserForm(request.POST, instance=request.user)
