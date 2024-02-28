@@ -7,13 +7,13 @@
 <div class="height-controller">
 <div class="form-container">
     <strong class="add-review">Add Review!</strong>
-    <form method="POST" class="create-form"
+    <form method="POST" class="create-form form mb-1"
         action="{% if review %}{% url 'reviews:update-review' review.slug %}{% else %}{% url 'reviews:create' %}{% endif %}"
-        class="form mb-1" enctype="multipart/form-data">
+        enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
         <div class="text-right">
-            <button class="btn btn-secondary"><a href="{% url 'reviews:review-display' %}">Cancel</a></button>
+            <a class="back-button" href="{% url 'reviews:review-display' %}">Cancel</a>
             <button type="submit" class="btn btn-primary">{% if review %}Save Changes{% else %}Add Review{% endif %}</button>
         </div>
     </form>

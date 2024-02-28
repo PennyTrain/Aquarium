@@ -71,9 +71,55 @@ Glass Fish Aquarium is built using Django using Python, JavaScript, CSS and HTML
 ![Create post page browser wireframe](/static/images/readme-images/browser-review-create.png)
 ![Create post page phone wireframe](/static/images/readme-images/phone-review-create.png)
 
+## User Stories
+
+- First Time Visitor Goals
+
+1. As a first time visitor, I want to be able to navigate the site easily.
+2. As a first time visitor, I want it to be clear whether or not I am logged in.
+3. As a first time visitor, I want to be able to see reviews.
+
+- Returning Visitor Goals
+
+1. As a returning visitor, I want to be able to create an account easily.
+2. As a returning visitor, I want to be able to post reviews.
+
+- Frequent Visitor Goals
+
+1. As a frequent visitor, I want to be able to update my reviews.
+2. As a frequent visitor, I want to be able to update my account.
+
+- Organization Goals 
+
+1. As an organization, we want to promote the Aquarium and bring in more business.
+2. As an organization, we want to be easily accessible to interested parties.
+3. As an organization, we want a consistent base of people who love aquariums and form an online community!
+
+## Features
+---
+
+### Home Page Video
+---
+
+![Screenshot of the homepage](/static/images/readme-images/home-page.png)
+
+### Gallery 
+---
+
+![Screenshot of the gallery](/static/images/readme-images/gallery.png)
+
+### Responsive Navbar
+---
+
+![Screenshot of the Navbar when mobile](/static/images/readme-images/responsive-navbar.png)
+
 ## Testing
+---
+
+- Throughout this project I was doing manual testing as I went, therefore if there was a bug it was found and dealt with right away.
 
 ### Python Validation
+---
 
 To check that my code was valid I ran it all through [Pep8](https://pep8ci.herokuapp.com/)
 I found that in some files, such as the env.py file the lines were too long, however for readibility I have left them... Along with the cloudinary links in my models!
@@ -84,9 +130,39 @@ I ran all of these apps through PEP8
 - accounts
 
 ### CSS Validation
+---
 
 - I ran my css through [W3 Validator](https://jigsaw.w3.org/css-validator/validator)
 ![CSS Validator Response](/static/images/readme-images/css-validation.png)
+
+
+### HTML Validation
+---
+- When validating my HTML I inspected the page in order to get the raw HTML due to Django using template tags it is not possible to just copy and paste the files.
+- The only errors I got were stray th, tr and td elements when using {{forms}}.
+- I ran my HTML through [W3 Validator](https://validator.w3.org/)
+
+### Unregistered site user access 
+---
+The overall site navigation consisted of me manually testing the site and navigating around it to ensure that all my views and everything is rendering to the site correctly.
+
+### CRUD Functionality
+---
+- Reviews CRUD
+
+![Screenshot of the review testcase](/static/images/readme-images/test-case3.png)
+
+- Account CRUD
+
+![Screenshot of the account testcase](/static/images/readme-images/test-case4.png)
+
+### Responsiveness
+
+![Screenshot of the responsive testcase](/static/images/readme-images/test-case2.png)
+
+### Links (navbar & footer)
+
+![Screenshot of the links testcase](/static/images/readme-images/test-case1.png)
 
 #### Technologies Used
 
@@ -179,7 +255,7 @@ To deploy the project through Heroku I followed these steps:
 #### Create a clone of this repository
 Creating a clone enables you to make a copy of the repository at that point in time - this lets you run a copy of the project locally:
 This can be done by:
-* Navigate to https://github.com/Olivertrain1221/body_beauty
+* Navigate to https://github.com/PennyTrain/Aquarium/
 * click on the arrow on the green code button at the top of the list of files
 * select the clone by https option and copy the URL it provides to the clipboard
 * Navigate to your code editor of choice and within the terminal change the directory to the location you want to clone the repository to.

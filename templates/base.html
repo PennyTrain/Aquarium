@@ -126,13 +126,8 @@
                     </li>
                     {% endif %}
                     <li class="footer-items display">
-                        <a href="{% url 'reviews:review-display' %}">
-                            Reviews
-                        </a>
-                    </li>
-                    <li class="footer-items">
-                        <a href="{% url 'main:main' %}">
-                            Home
+                        <a href="{% url 'main:gallery' %}">
+                            Gallary
                         </a>
                     </li>
                     <li class="footer-items display">
@@ -141,8 +136,13 @@
                         </a>
                     </li>
                     <li class="footer-items display">
-                        <a href="{% url 'main:gallery' %}">
-                            Gallary
+                        <a href="{% url 'reviews:review-display' %}">
+                            Reviews
+                        </a>
+                    </li>
+                    <li class="footer-items">
+                        <a href="{% url 'main:main' %}">
+                            Home
                         </a>
                     </li>
                 </ul>

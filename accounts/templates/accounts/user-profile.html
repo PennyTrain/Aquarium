@@ -21,8 +21,8 @@
       </div>
       <div class="profile-btns">
         <button class="btn btn-success" type="submit">Update</button>
-        <button class="btn btn-secondary"><a href="{% url 'reviews:review-display' %}">Back</a></button>
-        <button class="btn btn-danger"><a href="{% url 'accounts:delete' %}">Delete</a></button>
+        <a class="back-button" href="{% url 'reviews:review-display' %}">Back</a>
+        <a class="delete-button" href="{% url 'accounts:delete' %}">Delete</a>
       </div>
     </form>
   </div>

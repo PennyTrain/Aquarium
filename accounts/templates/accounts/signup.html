@@ -3,25 +3,23 @@
 {% load cloudinary %}
 {% block content %}
 <div class="height-controller">
-<div class="form-container">
-    <h1>Register</h1>
-    <div>
-        <small class="text-muted1">
-            Have an account?
-            <button class="btn btn-success">
-                <a href="{% url 'accounts:user-profile' %}">Sign In</a>
-            </button>
-        </small>
-    </div>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="register-content">
-            {{ form }}
-        </div>
+    <div class="form-container">
+        <h1>Register</h1>
         <div>
-            <button class="btn btn-secondary" type="submit">Sign up!!</button>
+            <small>
+                Have an account?
+                <a class="back-button" href="{% url 'accounts:user-profile' %}">Sign In</a>
+            </small>
         </div>
-    </form>
-</div>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="register-content">
+                {{ form }}
+            </div>
+            <div>
+                <button class="btn btn-secondary" type="submit">Sign up!!</button>
+            </div>
+        </form>
+    </div>
 </div>
 {% endblock %}
