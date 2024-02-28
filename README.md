@@ -1,4 +1,3 @@
-venv\Scripts\activate
 # Glass Fish Aquarium
 
 ## Introduction
@@ -98,6 +97,31 @@ Glass Fish Aquarium is built using Django using Python, JavaScript, CSS and HTML
 2. As an organization, we want to be easily accessible to interested parties.
 3. As an organization, we want a consistent base of people who love aquariums and form an online community!
 
+### The Scope Plane
+
+* User Profile - Create, Read, Update and Delete (Basic CRUD functionality)
+* Posts - Users can create, update and delete their own posts onto the site 
+* Other Users Reviews - Users can see and look at the other reviews and at home fish tanks that users have shared.
+* Users can login to their account, change their email and profile image.
+* Users can logout of their account.
+* Users need to be registered and logged in to be able to post a review onto the site.
+* Responsive Design - the site needs to be fully responsive and accessible accross all devices.
+
+#### Opportunities
+
+Arising from user stories
+| Opportunities | Importance | Viability / Feasibility
+| ------ | :------: | :------: |
+| ** Provide users the ability to create a profile ** | 5 | 5 |
+| ** Provide users the ability to create a review ** | 5 | 5 |
+| ** Provide users the ability to edit a review ** | 5 | 5 |
+| ** Provide users the ability to view reviews ** | 5 | 5 |
+| ** Provide users the ability to delete their own reviews ** | 5 | 5 |
+| ** Provide users the ability to edit their profile ** | 5 | 5 |
+| ** Provide users the ability to delete their profile ** | 5 | 5 |
+| ** Provide users the ability to access the site on any device ** | 5 | 5 |
+
+
 ## Features
 ---
 
@@ -106,7 +130,6 @@ Glass Fish Aquarium is built using Django using Python, JavaScript, CSS and HTML
 * The Homepage features a video os an aquarium
 
 ![Screenshot of the homepage](/static/images/readme-images/home-page.png)
-
 
 ### Gallery 
 ---
@@ -128,7 +151,7 @@ Glass Fish Aquarium is built using Django using Python, JavaScript, CSS and HTML
 
 ### Functioning Review
 ---
-*
+* The website has a fully functioning review aspect
 
 ![Screenshot of a review](/static/images/readme-images/review-crud.png)
 
@@ -166,10 +189,10 @@ I ran all of these apps through PEP8
 
 ### HTML Validation
 ---
-- When validating my HTML I inspected the page in order to get the raw HTML due to Django using template tags it is not possible to just copy and paste the files.
-- The only errors I got were stray th, tr and td elements when using {{forms}}.
-- However all original HTML written by me contained no errors
-- I ran my HTML through [W3 Validator](https://validator.w3.org/)
+- When validating my HTML I copied the heroku url to my project and pasted it into [W3 HTML Validator](https;//validator.w3.org)
+---
+![Screenshot of html validator](/static/images/readme-images/html-validation.png)
+- When validating my HTML I also inspected the page in order to get the raw HTML due to Django using template tags it is not possible to just copy and paste the files. The only errors I got were stray th, tr and td elements when using {{forms}}. However all original HTML written by me contained no errors. I ran my HTML through [W3 HTML Validator](https://validator.w3.org/)
 
 - Home Page: No errors
 - Gallery Page: No errors
@@ -186,6 +209,12 @@ I ran all of these apps through PEP8
 ### Unregistered site user access 
 ---
 The overall site navigation consisted of me manually testing the site and navigating around it to ensure that all my views and everything is rendering to the site correctly.
+
+### Lighthouse report
+---
+- Lighthouse
+
+![Screenshot of the lighthouse report](/static/images/readme-images/lighthouse-report.png)
 
 ### CRUD Functionality
 ---
@@ -208,6 +237,12 @@ The overall site navigation consisted of me manually testing the site and naviga
 ### Notable Bugs
 
 * During testing I noticed that users could access any part of the page if they typed the url in manually, to fix this I added this on top of my views a decorator @login_required(login_url="/accounts/login/").
+
+* During testing I noticed on the profile page the cloudinary link was not responsive, as it was so long it broke my site, I managed to get rid of the url by targetting it like this
+.form-group > a {
+    display:none;
+}
+Which worked and my site was then responsive, however I still cannot get rid of the "Currently:" on the profile page. As there is no element I can target it with!
 
 
 #### Technologies Used

@@ -10,7 +10,7 @@
         </div>
         <div class="review-content">
             <h5 class="review-title capitalize">{{ review.title }}</h5>
-            <p class="card-text capitalize">{{ review.content|truncatechars:100 | safe}}</p>
+            <p class="card-text capitalize review-body">{{ review.content|truncatechars:100 | safe}}</p>
             <p class="card-text capitalize">By {{ review.author }}</p>
         </div>
         {% if user == review.author or user.is_superuser %}

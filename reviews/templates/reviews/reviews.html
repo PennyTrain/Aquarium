@@ -2,59 +2,56 @@
 {% load static %}
 
 {% block content %}
-    <h1 class="review-page-title">Glass Fish Reviews</h1>
-    <div>
-        {% if user.is_authenticated %}
-        <div class="review-page-buttons">
-            <div>
-                <a class="back-button" href="{% url 'reviews:create' %}">Create a Review!</a>
-            </div>
-
-            {% else %}
-            <div>
-                <a class="back-button" href="{% url 'accounts:signup' %}">Join The Site and Post a Review!</a>
-            </div>
-            {% endif %}
+<h1 class="review-page-title">Glass Fish Reviews</h1>
+<div>
+    {% if user.is_authenticated %}
+    <div class="review-page-buttons">
+        <div>
+            <a class="back-button" href="{% url 'reviews:create' %}">Create a Review!</a>
+        </div>
+        {% else %}
+        <div>
+            <a class="back-button" href="{% url 'accounts:signup' %}">Join The Site and Post a Review!</a>
         </div>
     </div>
-    <!-- this is a loop through all reviews -->
-    <div class="photos-container">
-        {% for reviews in reviews_all %}
-        <a href="{% url 'reviews:reviews-detail' reviews.slug %}">
-            <div class="card-container">
-                <div class="card review-card" style="width: 18rem;">
-                    <div>
-                        <div class="review">
-                            <div class="review-images">
-                                {% if "default" in ReviewPost.featured_image.url %}
-                                <img class="card-img-top" src="{{ reviews.featured_image.url }}"
-                                    alt="placeholder image">
-                                {% else %}
-                                <img class="card-img-top" src=" {{ reviews.featured_image.url }}"
-                                    alt="{{ reviews.title }}">
-                                {% endif %}
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title review-title capitalize">{{ reviews.title }}</h5>
-                                <!-- the "safe" tag prevents the code tags from displaying  -->
-                                <div class="reviews-text-container">
-                                    <p class="card-text capitalize">
-                                        {{ reviews.content|truncatechars:100 | safe }}
-                                    </p>
-                                    <p class="card-text capitalize">
-                                        By- {{ reviews.author }}
-                                    </p>
-                                </div>
+    {% endif %}
+</div>
+<!-- this is a loop through all reviews -->
+<div class="photos-container">
+    {% for reviews in reviews_all %}
+    <a href="{% url 'reviews:reviews-detail' reviews.slug %}">
+        <div class="card-container">
+            <div class="card review-card" style="width: 18rem;">
+                <div>
+                    <div class="review">
+                        <div class="review-images">
+                            {% if "default" in ReviewPost.featured_image.url %}
+                            <img class="card-img-top" src="{{ reviews.featured_image.url }}" alt="placeholder image">
+                            {% else %}
+                            <img class="card-img-top" src=" {{ reviews.featured_image.url }}" alt="{{ reviews.title }}">
+                            {% endif %}
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title review-title capitalize">{{ reviews.title }}</h5>
+                            <!-- the "safe" tag prevents the code tags from displaying  -->
+                            <div class="reviews-text-container">
+                                <p class="card-text capitalize review-body">
+                                    {{ reviews.content|truncatechars:100 | safe }}
+                                </p>
+                                <p class="card-text capitalize">
+                                    By- {{ reviews.author }}
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </a>
-        {% endfor %}
-    </div>
-    <div class="review-page-buttons">
-        <a class="back-button" href="{% url 'main:main' %}">Back!</a>
-    </div>
-    <!-- closing the loop ^ -->
-    {% endblock %}
+        </div>
+    </a>
+    {% endfor %}
+</div>
+<div class="review-page-buttons">
+    <a class="back-button" href="{% url 'main:main' %}">Back!</a>
+</div>
+<!-- closing the loop ^ -->
+{% endblock %}
