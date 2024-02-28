@@ -5,9 +5,8 @@ venv\Scripts\activate
 ---
 * Glass Fish Aquarium is a fun website where users can leave reviews on the Aquarium, along with that users can also post their at home aquariums and create their own account!
 Glass Fish Aquarium is built using Django using Python, JavaScript, CSS and HTML.
-[View live project here](#)
+[View live project here](https://glassfish-aquarium-e2673bbcde39.herokuapp.com/)
 ---
-![Am I responsive screenshot](#)
 
 ### Wireframe Mockups!
 ---
@@ -62,8 +61,8 @@ Glass Fish Aquarium is built using Django using Python, JavaScript, CSS and HTML
 
 * How the review looks in detail when you are the author
 ---
-![](/static/images/readme-images/browser-review-owner.png)
-![](/static/images/readme-images/phone-review-owner.png)
+![Detailed review for superusers/authors browser wireframe](/static/images/readme-images/browser-review-owner.png)
+![Detailed review for superusers/authors browser wireframe](/static/images/readme-images/phone-review-owner.png)
 ---
 
 * The Create a post Page
@@ -72,6 +71,10 @@ Glass Fish Aquarium is built using Django using Python, JavaScript, CSS and HTML
 ![Create post page phone wireframe](/static/images/readme-images/phone-review-create.png)
 
 ## User Stories
+
+* There are more user stories at [Link to github project](https://github.com/users/PennyTrain/projects/2)
+### The Strategy Plane
+* The Glass Fish Aquarium website is designed to be a site for users to create reviews and share their at home aquariums with other users!
 
 - First Time Visitor Goals
 
@@ -100,21 +103,46 @@ Glass Fish Aquarium is built using Django using Python, JavaScript, CSS and HTML
 
 ### Home Page Video
 ---
+* The Homepage features a video os an aquarium
 
 ![Screenshot of the homepage](/static/images/readme-images/home-page.png)
 
+
 ### Gallery 
 ---
+* The Gallery page is full of fun facts about fish along with photos
 
 ![Screenshot of the gallery](/static/images/readme-images/gallery.png)
 
 ### Responsive Navbar
 ---
+* The navbar is responsive and collapsable
 
 ![Screenshot of the Navbar when mobile](/static/images/readme-images/responsive-navbar.png)
 
+### Functioning Profile
+---
+* The website has a fully functioning profile aspect
+
+![Screenshot of a profile](/static/images/readme-images/profile-crud.png)
+
+### Functioning Review
+---
+*
+
+![Screenshot of a review](/static/images/readme-images/review-crud.png)
+
+## Future Enhancements
+
+* In the future, I would like to add comments, therefore users can comment on others reviews and photos of their fish at home.
+* In the future, I would like to add a search bar to the gallery page therefore people can search if their is a specific fish they would like to see.
+* In the future,I would like to add a search bar to the review page therefore people can search if their is a specific review and/or at home aquarium they would like to see!
+
+
 ## Testing
 ---
+
+#### Testing Strategy
 
 - Throughout this project I was doing manual testing as I went, therefore if there was a bug it was found and dealt with right away.
 
@@ -122,7 +150,7 @@ Glass Fish Aquarium is built using Django using Python, JavaScript, CSS and HTML
 ---
 
 To check that my code was valid I ran it all through [Pep8](https://pep8ci.herokuapp.com/)
-I found that in some files, such as the env.py file the lines were too long, however for readibility I have left them... Along with the cloudinary links in my models!
+I found that in some files, such as the env.py file the lines were too long however these were only the links, the cloudinary links in my models! However for readibility I have left them...  
 I ran all of these apps through PEP8
 - reviews
 - glassfish
@@ -140,7 +168,20 @@ I ran all of these apps through PEP8
 ---
 - When validating my HTML I inspected the page in order to get the raw HTML due to Django using template tags it is not possible to just copy and paste the files.
 - The only errors I got were stray th, tr and td elements when using {{forms}}.
+- However all original HTML written by me contained no errors
 - I ran my HTML through [W3 Validator](https://validator.w3.org/)
+
+- Home Page: No errors
+- Gallery Page: No errors
+- Reviews Page: No errors
+- Log Out Page: No errors
+- Review Detail Page: No errors
+- Delete Profile Page: No errors
+- Sign Up Page: There were errors in the built in forms I used, however I cannot access them to change it. The only errors I got were stray th, tr, td and ul elements when using {{forms}}.
+- Log In Page: There were errors in the built in forms I used, however I cannot access them to change it. The only errors I got were stray th, tr and td elements when using {{forms}}.
+- Profile Page: There were errors in the built in forms I used, however I cannot access them to change it. The only errors I got were stray th, tr and td elements when using {{forms}}.
+- Create Review Page: There were errors in the built in forms I used, however I cannot access them to change it. The only errors I got were stray th, tr and td elements when using {{forms}}.
+- Update Review Page: There were errors in the built in forms I used, however I cannot access them to change it. The only errors I got were stray th, tr and td elements when using {{forms}}.
 
 ### Unregistered site user access 
 ---
@@ -163,6 +204,11 @@ The overall site navigation consisted of me manually testing the site and naviga
 ### Links (navbar & footer)
 
 ![Screenshot of the links testcase](/static/images/readme-images/test-case1.png)
+
+### Notable Bugs
+
+* During testing I noticed that users could access any part of the page if they typed the url in manually, to fix this I added this on top of my views a decorator @login_required(login_url="/accounts/login/").
+
 
 #### Technologies Used
 
@@ -268,3 +314,29 @@ Due to certian packages being required the system nneds to know which ones in or
 * This saves the current packages that are required to the requirements.txt file itself. 
 
 * However when Cloning or starting in a new workspaces the content(packages) within the requirements.txt will need to be installed this is done by the following command `pip install -r requirements.txt`
+
+
+## Credits
+--- 
+### Content
+---
+* The text for all pages was created by myself.
+* Icons used for the various links on the site were taken from [Font Awesome](https://fontawesome.com/)
+* The reference material on HTML and CSS provided by [w3schools.com](https://www.w3schools.com/)
+
+### Media
+---
+* The css reset was provided by [css reset](http://meyerweb.com/eric/tools/css/reset/)
+* The Favicon, links and meta code were generated by [Realfavicongenerator.net](https://realfavicongenerator.net).
+* The images used on the webisite were generated by [Pixabay](https://pixabay.com/photos/)
+
+### Reference Material
+---
+* W3 Schools was used as a reference point for HTML, CSS and JavaScript.
+
+### Acknowledgements
+---
+* I'd like to thank the following:
+- Matt Bodden, for the significant ideas for my project - your guidance truly made a difference!
+- Oliver Train, for all his help regarding his patience and pointing me in the right direction.
+- Dario Carrasquel, for all his help during this project as my mentor.

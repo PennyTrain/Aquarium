@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'crispy_forms',
+    'crispy_bootstrap4',
     'bootstrap5',
     'django.contrib.staticfiles',
     'cloudinary_storage',
@@ -96,6 +97,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'glassfish.wsgi.application'
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap4'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 

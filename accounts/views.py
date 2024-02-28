@@ -20,7 +20,7 @@ def profile_register(request):
             username = form.cleaned_data.get('username')
             form.save()
             messages.add_message(request, messages.SUCCESS,
-                             'Account created!')
+                                 'Account created!')
             return redirect('accounts:login')
     else:
         form = UserRegisterForm()
@@ -88,8 +88,6 @@ def profile_view(request):
                                      'Your profile has been updated')
                 return redirect('accounts:profile')
             except Exception:
-                messages.add_message(request, messages.WARNING,
-                                     'is it all filled out correctly?')
                 account_form = AccountUpdateForm(request.POST,
                                                  instance=request.user)
                 profile_form = ProfileFormUpdate(request.POST,

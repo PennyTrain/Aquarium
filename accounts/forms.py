@@ -33,6 +33,8 @@ class ProfileFormUpdate(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['profile_image']
+        exclude = ('profile_image.url',)
+        
 
 
 class DeleteUserForm(forms.ModelForm):
