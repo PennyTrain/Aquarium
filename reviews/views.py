@@ -63,7 +63,7 @@ def review_update(request, slug):
     """
     review = get_object_or_404(ReviewPost, slug=slug)
     if not request.user == review.author:
-        messages.error(request, 'Sorry not Owner of the post!')
+        messages.warning(request, 'Sorry not Owner of the post!')
         return redirect('reviews:review-display')
     review_form = EditPost(instance=review)
     if request.method == 'POST':
