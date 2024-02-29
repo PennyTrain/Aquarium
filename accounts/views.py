@@ -70,7 +70,8 @@ def profile_logout(request):
 @login_required(login_url="/accounts/login/")
 def profile_view(request):
     """
-    This shows the users their own profile if they have one and they are logged into it
+    This shows the users their own profile
+    if they have one and they are logged into it
     """
     profile_form = ProfileFormUpdate(instance=request.user.profile)
     account_form = AccountUpdateForm(instance=request.user)

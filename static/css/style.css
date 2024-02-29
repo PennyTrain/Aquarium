@@ -220,6 +220,10 @@ footer {
     display:none;
 }
 
+.create-form > a {
+    display:none;
+}
+
 /* When the footer items are hovered over they are underlined */
 .footer-items:hover {
     text-decoration: underline;
@@ -489,6 +493,8 @@ iframe {
     color: white;
     padding: 0.5rem;
     border-radius: 10px;
+    font-family: Lato, san-serif;
+    font-weight: 550;
 }
 
 .delete-button {
@@ -496,6 +502,8 @@ iframe {
     color: white;
     padding: 0.5rem;
     border-radius: 10px;
+    font-family: Lato, san-serif;
+    font-weight: 550;
 }
 
 .back-button {
@@ -504,6 +512,8 @@ iframe {
     padding: 0.5rem;
     margin-top: .5rem;
     border-radius: 10px;
+    font-family: Lato, san-serif;
+    font-weight: 550;
 }
 
 /* MAKING IT RESPONSIVE! */
