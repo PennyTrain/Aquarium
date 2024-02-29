@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300family=Oswald&display=swap');
+
 html,
 body,
 div,
@@ -127,21 +129,12 @@ q:after {
 /*end of css reset*/
 
 
-
-.reviews-container{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.card {
-    width: 18rem;
-}
-
 /* Sets the background color, the font color, and height of the body */
 body {
     background-color: hsl(225, 91%, 82%);
     height: 100vh;
+    font-family: Lato, san-serif;
+    font-weight: 550;
     color: black;
 }
 
@@ -223,6 +216,14 @@ footer {
     padding: .5rem;
 }
 
+.form-group > a {
+    display:none;
+}
+
+.create-form > a {
+    display:none;
+}
+
 /* When the footer items are hovered over they are underlined */
 .footer-items:hover {
     text-decoration: underline;
@@ -242,6 +243,7 @@ footer {
 /* This gives the content 2rem padding */
 .home-content {
     padding: 2rem;
+    line-height: 1.3;
 }
 
 /* This makes the homepage-title fontsize 25px */
@@ -266,10 +268,38 @@ iframe {
     margin-top: 10px;
 }
 
+/* Django message container */
 .message-container {
-    background-color: rgba(0, 0, 77, 0.7);
     border-radius: 10px;
+    font-size: 18px;
+}
+
+/* Success message */
+.success {
+    background-color: seagreen;
     color: white;
+}
+
+/* Warning message */
+.warning {
+    background-color: coral;
+    color: black;
+}
+
+/* This capitalizes the content in my reviews */
+.capitalize {
+    text-transform: capitalize;
+}
+
+.reviews-text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem
+}
+
+.review-detail-image {
+    border: 4px solid black;
+    border-radius: 10px;
 }
 
 .card-img-top {
@@ -318,6 +348,7 @@ iframe {
 .height-controller {
     height: 100vh;
 }
+
 .create-form {
     display: flex;
     flex-direction: column;
@@ -338,6 +369,7 @@ iframe {
     font-size: 25px;
 }
 
+/* This makes the review page title blue, in the middle of the screen, big and have a padding around it */
 .review-page-title {
     color: #00004d;
     text-align: center;
@@ -346,14 +378,14 @@ iframe {
     padding: 1rem;
 }
 
-
-.login-inputs{
+/* The log in form */
+.login-inputs {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-
+/* This styles the profile image */
 .profile-image {
     border-radius: 20px;
     border: 4px solid black;
@@ -361,6 +393,16 @@ iframe {
     max-height: 12rem;
 }
 
+
+.reviews-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 18rem;
+}
 .card-body {
     background-color: #00004D;
     color: white;
@@ -380,6 +422,7 @@ iframe {
 .schedule-table {
     margin: 0 auto;
 }
+
 /* Basic form stripping hidden */
 .helptext {
     display: none;
@@ -396,23 +439,26 @@ iframe {
     font-size: 20px;
 }
 
-
-
 .review-content {
     text-align: center;
     gap: 0.5rem;
     display: flex;
     flex-direction: column;
+    padding: 1rem;
 }
 
 
-.delete-title{
-	padding: 1rem;
-	font-size: 20px;
+.delete-title {
+    padding: 1rem;
+    font-size: 20px;
 }
 
 .delete-content {
     padding: 1rem;
+}
+
+.review-body {
+    line-height: 1.3;
 }
 
 .account-title {
@@ -432,42 +478,45 @@ iframe {
 .admin-buttons {
     margin: 1rem;
 }
+
 .profile-btns {
     padding: 1rem;
-    text-align:center;
+    text-align: center;
 }
 
 .center-button {
-    text-align:center;
-}
-.update-button{
-    background-color: green;
-    color:white;
-    padding: 0.5rem;
-    border-radius: 10px;
+    text-align: center;
 }
 
-.delete-button{
-    background-color:red;
-    color:white;
+.update-button {
+    background-color: green;
+    color: white;
     padding: 0.5rem;
     border-radius: 10px;
+    font-family: Lato, san-serif;
+    font-weight: 550;
+}
+
+.delete-button {
+    background-color: red;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 10px;
+    font-family: Lato, san-serif;
+    font-weight: 550;
 }
 
 .back-button {
-    background-color:grey;
-    color:white;
+    background-color: grey;
+    color: white;
     padding: 0.5rem;
+    margin-top: .5rem;
     border-radius: 10px;
+    font-family: Lato, san-serif;
+    font-weight: 550;
 }
 
 /* MAKING IT RESPONSIVE! */
-
-@media screen and (max-width: 950px) {
-
-
-}
-
 @media screen and (max-width: 600px) {
 
     iframe {
@@ -486,17 +535,22 @@ iframe {
     }
 
     nav ul {
-        text-align: center; /* Center the list */
+        text-align: center;
+        /* Center the list */
     }
 
     .title {
-        text-align: center; /* Center the title */
-        clear: both; /* Clear the float from the title */
+        text-align: center;
+        /* Center the title */
+        clear: both;
+        /* Clear the float from the title */
     }
 
     .nav-items {
-        float: none; /* Remove float */
-        display: inline-block; /* Display items inline */
+        float: none;
+        /* Remove float */
+        display: inline-block;
+        /* Display items inline */
     }
 
 }
@@ -509,16 +563,18 @@ iframe {
         justify-content: center;
     }
 
+    /* This hides certain elements that are not needed */
     .display {
         display: none;
     }
 
+    /* Changes the size of the homepage title */
     .homepage-title {
         font-size: 30px;
     }
-    
+
+    /* Changes the width of the textareas to make it responsive */
     textarea {
         width: 15rem;
     }
-
 }
