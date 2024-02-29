@@ -260,6 +260,9 @@ The overall site navigation consisted of me manually testing the site and naviga
 }
 Which worked and my site was then responsive, however I still cannot get rid of the "Currently:" on the profile page. As there is no element I can target it with!
 
+### Commit Messages 
+- When making commit messages I used 2 -m "" Therefore I could keep my messages sentence length but still have detail if needed. 
+![Screenshot of a commit message](/static/images/readme-images/commit-messages.png)
 
 #### Technologies Used
 

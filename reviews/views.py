@@ -5,6 +5,7 @@ from django.views.generic import DeleteView
 from .forms import EditPost, CreatePost
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib import messages
+from accounts.models import Profile
 
 
 def review_display(request):
@@ -61,6 +62,9 @@ def review_update(request, slug):
     update
     """
     review = get_object_or_404(ReviewPost, slug=slug)
+    if not request.user == review.author:
+        messages.error(request, 'Sorry not Owner of the post!')
+        return redirect('reviews:review-display')
     review_form = EditPost(instance=review)
     if request.method == 'POST':
         review_form = EditPost(request.POST,
