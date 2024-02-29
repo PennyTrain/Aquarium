@@ -216,12 +216,12 @@ footer {
     padding: .5rem;
 }
 
-.form-group > a {
-    display:none;
+.form-group>a {
+    display: none;
 }
 
-.create-form > a {
-    display:none;
+.create-form>a {
+    display: none;
 }
 
 /* When the footer items are hovered over they are underlined */
@@ -403,6 +403,7 @@ iframe {
 .card {
     width: 18rem;
 }
+
 .card-body {
     background-color: #00004D;
     color: white;
@@ -551,6 +552,10 @@ iframe {
         /* Remove float */
         display: inline-block;
         /* Display items inline */
+    }
+
+    .at-home-aquariums {
+        display: none;
     }
 
 }
